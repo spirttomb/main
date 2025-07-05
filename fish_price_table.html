@@ -137,6 +137,19 @@
             color: #90cdf4;
         }
         
+        .fish-portrait {
+            width: 32px;
+            height: 32px;
+            margin-right: 8px;
+            border-radius: 4px;
+            vertical-align: middle;
+        }
+        
+        .fish-info {
+            display: flex;
+            align-items: center;
+        }
+        
         .time, .weather {
             font-size: 0.9em;
             color: #a0aec0;
@@ -276,7 +289,7 @@
             
             table {
                 font-size: 0.85em;
-                min-width: 700px;
+                min-width: 750px;
             }
             
             th, td {
@@ -285,7 +298,13 @@
             }
             
             .fish-name {
-                min-width: 100px;
+                min-width: 120px;
+            }
+            
+            .fish-portrait {
+                width: 24px;
+                height: 24px;
+                margin-right: 6px;
             }
             
             .price {
@@ -322,11 +341,17 @@
             
             table {
                 font-size: 0.8em;
-                min-width: 650px;
+                min-width: 700px;
             }
             
             th, td {
                 padding: 6px 3px;
+            }
+            
+            .fish-portrait {
+                width: 20px;
+                height: 20px;
+                margin-right: 4px;
             }
             
             .sort-btn, .season-nav-btn {
@@ -413,6 +438,65 @@
         ];
 
         let currentSortOrder = 'asc';
+
+        // Fish name to sprite mapping based on Harvest Moon Animal Parade official sprites
+        const fishSpriteMap = {
+            "Angler Fish": "01",
+            "Char": "02", 
+            "Chub": "03",
+            "Rainbow Trout": "04",
+            "Large Bass": "05",
+            "Crucian Carp": "06",
+            "Catfish": "07",
+            "Small Fish": "08",
+            "Cherry Salmon": "09",
+            "Salmon": "10",
+            "Carp": "11",
+            "Sardine": "12",
+            "Sea Bream": "13",
+            "Mackerel": "14",
+            "Tuna": "15",
+            "Flounder": "16",
+            "Horse Mackerel": "17",
+            "Sea Bass": "18",
+            "Squid": "19",
+            "Octopus": "20",
+            "Blowfish": "21",
+            "Tropical Fish": "22",
+            "Bonito": "23",
+            "Monkfish": "24",
+            "Skipjack": "25",
+            "Yellowtail": "26",
+            "Lobster": "27",
+            "Red Snapper": "28",
+            "Scallop": "29",
+            "Shrimp": "30",
+            "Turban Shell": "31",
+            "Conch": "32",
+            "Pond Smelt": "33",
+            "Sweetfish": "34",
+            "Eel": "35",
+            "Shark": "36",
+            "Marlin": "37",
+            "King Fish": "38",
+            "Ancient Fish": "39",
+            "Sunfish": "40",
+            "Mahi-Mahi": "41",
+            "Giant Catfish": "42",
+            "Arowana": "43",
+            "Dorado": "44",
+            "Stringfish": "45",
+            "Dace": "46",
+            "Sea Urchin": "47"
+        };
+
+        function getFishSprite(fishName) {
+            const spriteNum = fishSpriteMap[fishName];
+            if (spriteNum) {
+                return `https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/fish${spriteNum}.jpg`;
+            }
+            return ''; // Return empty string if no sprite found
+        }
 
         function categorizeSeasons(season) {
             if (season === "Any season") return "Any Season";
@@ -513,26 +597,32 @@
                                 <table>
                                     <thead>
                                         <tr>
-                                            <th>Fish Name</th>
+                                            <th>Fish</th>
                                             <th>Price</th>
-                                            <th>Specific Location</th>
                                             <th>Season</th>
                                             <th>Weather</th>
                                             <th>Time</th>
                                             <th>EXP</th>
+                                            <th>Specific Location</th>
                                         </tr>
                                     </thead>
                                     <tbody>`;
                         
                         grouped[season][location].forEach(fish => {
+                            const spriteUrl = getFishSprite(fish.name);
                             html += `<tr>
-                                <td class="fish-name">${fish.name}</td>
+                                <td class="fish-name">
+                                    <div class="fish-info">
+                                        ${spriteUrl ? `<img src="${spriteUrl}" alt="${fish.name}" class="fish-portrait">` : ''}
+                                        ${fish.name}
+                                    </div>
+                                </td>
                                 <td class="price">${fish.price} G</td>
-                                <td>${fish.specificLocation}</td>
                                 <td>${fish.season}</td>
                                 <td class="weather">${getWeatherSymbol(fish.weather)}</td>
                                 <td class="time">${fish.time}</td>
                                 <td class="exp">${fish.exp}</td>
+                                <td>${fish.specificLocation}</td>
                             </tr>`;
                         });
                         
