@@ -22,6 +22,7 @@
             box-shadow: 0 8px 32px rgba(0,0,0,0.5);
             overflow: hidden;
             border: 1px solid #333;
+            padding-bottom: 100px;
         }
         
         .header {
@@ -492,6 +493,23 @@
             return "*";
         }
 
+        function getSeasonSymbol(season) {
+            if (season === "Any season") return "*";
+            if (season.includes("Spring")) return "🌸";
+            if (season.includes("Summer")) return "☀️";
+            if (season.includes("Fall")) return "🍂";
+            if (season.includes("Winter")) return "❄️";
+            
+            // Handle multiple seasons
+            const symbols = [];
+            if (season.includes("Spring")) symbols.push("🌸");
+            if (season.includes("Summer")) symbols.push("☀️");
+            if (season.includes("Fall")) symbols.push("🍂");
+            if (season.includes("Winter")) symbols.push("❄️");
+            
+            return symbols.length > 0 ? symbols.join("") : "*";
+        }
+
         function getFishImageUrl(spriteId) {
             return `https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/fish${spriteId.toString().padStart(2, '0')}.jpg`;
         }
@@ -571,7 +589,7 @@
                                 </td>
                                 <td class="fish-name">${fish.name}</td>
                                 <td class="price">${fish.price} G</td>
-                                <td>${fish.season}</td>
+                                <td>${getSeasonSymbol(fish.season)}</td>
                                 <td class="weather">${getWeatherSymbol(fish.weather)}</td>
                                 <td class="time">${fish.time}</td>
                                 <td class="exp">${fish.exp}</td>
