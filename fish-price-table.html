@@ -399,63 +399,71 @@
 
     <script>
         const fishData = [
-            {name: "Angler Fish", price: 322, location: "Toucan Island", specificLocation: "south shore, west shore", season: "Any season", weather: "Any weather", time: "All day", exp: 65, spriteId: 24},
-            {name: "Char", price: 99, location: "Goddess Pond", specificLocation: "shrine waters, behind the divine tree", season: "Any season", weather: "Any weather", time: "5:00 am to 3:00 pm", exp: 20, spriteId: 2},
-            {name: "Chub", price: 58, location: "Multiple", specificLocation: "Clarinet District (stream), Garmon Mine (waterfall, stream), Flute Fields (bridge south/north), Toucan Island (pond)", season: "Any season", weather: "Any weather", time: "5:00 am to 7:00 pm", exp: 13, spriteId: 3},
-            {name: "Rainbow Trout", price: 109, location: "Multiple", specificLocation: "Garmon Mine (waterfall), Flute Fields (bridge south, pond)", season: "Spring, Summer, Fall", weather: "Any weather", time: "5:00 am to 3:00 pm", exp: 10, spriteId: 4},
-            {name: "Large Bass", price: 72, location: "Flute Fields", specificLocation: "river west, bridge north/south", season: "Any season", weather: "Any weather", time: "7:00 pm to 9:00 am", exp: 23, spriteId: 5},
-            {name: "Crucian Carp", price: 59, location: "Multiple", specificLocation: "Clarinet District (pond), Goddess Pond (shrine, divine tree), Fugue Forest (footbridge left)", season: "Any season", weather: "Any weather", time: "Any time", exp: 20, spriteId: 6},
-            {name: "Catfish", price: 198, location: "Multiple", specificLocation: "Garmon Mine (waterfall), Flute Fields (bridge south), Water Cave (Floor 0, Floor 50)", season: "Summer, Fall, Winter", weather: "Any weather", time: "3:00 pm to 5:00 am", exp: 55, spriteId: 7},
-            {name: "Small Fish", price: 7, location: "Multiple", specificLocation: "Various locations", season: "Any season", weather: "Any weather", time: "Any time", exp: 10, spriteId: 8},
-            {name: "Cherry Salmon", price: 250, location: "Multiple", specificLocation: "Garmon Mine (waterfall), Flute Fields (bridge south)", season: "Spring, Winter", weather: "Rain, Thunderstorm, Hurricane, Snow, Snowstorm", time: "7:00 pm to 9:00 am", exp: 80, spriteId: 9},
-            {name: "Salmon", price: 277, location: "Flute Fields", specificLocation: "bridge north, bridge south", season: "Fall", weather: "Any weather", time: "5:00 am to 7:00 pm", exp: 32, spriteId: 10},
-            {name: "Carp", price: 106, location: "Multiple", specificLocation: "Clarinet District (pond, stream), Fugue Forest (footbridge), Goddess Pond (shrine, divine tree)", season: "Any season", weather: "Any weather", time: "3:00 pm to 5:00 am", exp: 15, spriteId: 11},
-            {name: "Sardine", price: 17, location: "Multiple", specificLocation: "Clarinet District (shores), Harmonica Town (seawall, dock, lighthouse, beach), Water Cave (floor 0)", season: "Spring, Winter", weather: "Any weather", time: "Any time", exp: 13, spriteId: 12},
-            {name: "Sea Bream", price: 13, location: "Multiple", specificLocation: "Clarinet District (shores), Harmonica Town (seawall, dock, lighthouse, beach), Toucan Island (shores), Water Cave", season: "Any season", weather: "Any weather", time: "5:00 am to 7:00 pm", exp: 10, spriteId: 13},
-            {name: "Mackerel", price: 17, location: "Multiple", specificLocation: "Clarinet District (southwest shore), Harmonica Town (seawall, dock, lighthouse, beach), Water Cave (floor 0)", season: "Any season", weather: "Any weather", time: "Any time", exp: 12, spriteId: 14},
-            {name: "Tuna", price: 286, location: "Toucan Island", specificLocation: "all shores", season: "Any season", weather: "Sunny, Clear, Cloudy", time: "Any time", exp: 33, spriteId: 15},
-            {name: "Flounder", price: 81, location: "Multiple", specificLocation: "Clarinet District (southwest shore), Harmonica Town (seawall, dock, lighthouse, beach), Water Cave (floor 0)", season: "Any season", weather: "Any weather", time: "Any time", exp: 15, spriteId: 16},
-            {name: "Horse Mackerel", price: 149, location: "Multiple", specificLocation: "Clarinet District (southwest shore), Harmonica Town (seawall, dock, lighthouse, beach)", season: "Spring, Summer, Fall", weather: "Any weather", time: "5:00 am to 9:00 am, 3:00 pm to 7:00 pm", exp: 32, spriteId: 17},
-            {name: "Sea Bass", price: 120, location: "Multiple", specificLocation: "Clarinet District (southeast shore), Harmonica Town (seawall, lighthouse, beach), Toucan Island (south shore, northeast shore)", season: "Summer, Fall", weather: "Any weather", time: "8:00 am to 7:00 pm", exp: 25, spriteId: 18},
-            {name: "Squid", price: 85, location: "Multiple", specificLocation: "Clarinet District (southwest shore), Harmonica Town (seawall, dock, lighthouse, beach), Water Cave (floor 0)", season: "Spring, Fall, Winter", weather: "Any weather", time: "5:00 am to 7:00 pm", exp: 18, spriteId: 19},
-            {name: "Octopus", price: 92, location: "Multiple", specificLocation: "Clarinet District (shores), Harmonica Town (dock, lighthouse, beach), Toucan Island (shores)", season: "Any season", weather: "Any weather", time: "3:00 pm to 9:00 am", exp: 8, spriteId: 20},
-            {name: "Blowfish", price: 173, location: "Toucan Island", specificLocation: "all shores", season: "Any season", weather: "Sunny, Thunderstorm, Hurricane, Snow, Snowstorm", time: "5:00 am to 3:00 pm", exp: 30, spriteId: 21},
-            {name: "Tropical Fish", price: 76, location: "Multiple", specificLocation: "Toucan Island (all shores), Water Cave (floor 0)", season: "Spring, Summer, Fall", weather: "Any weather", time: "Any time", exp: 20, spriteId: 22},
-            {name: "Bonito", price: 84, location: "Multiple", specificLocation: "Clarinet District (shores), Harmonica Town (dock, lighthouse, beach), Toucan Island (east shore)", season: "Fall, Winter", weather: "Any weather", time: "7:00 pm to 3:00 pm", exp: 8, spriteId: 23},
-            {name: "Monkfish", price: 330, location: "Multiple", specificLocation: "Harmonica Town (lighthouse, beach), Water Cave (floor 50)", season: "Fall, Winter", weather: "Any weather", time: "3:00 pm to 9:00 am", exp: 80, spriteId: 24},
-            {name: "Skipjack", price: 119, location: "Multiple", specificLocation: "Clarinet District (shores), Harmonica Town (dock, lighthouse, beach), Toucan Island (northeast shore)", season: "Spring, Winter", weather: "Any weather", time: "7:00 pm to 3:00 pm", exp: 24, spriteId: 25},
-            {name: "Yellowtail", price: 153, location: "Toucan Island", specificLocation: "all shores", season: "Spring, Winter", weather: "Any weather", time: "3:00 pm to 9:00 am", exp: 25, spriteId: 26},
-            {name: "Lobster", price: 317, location: "Multiple", specificLocation: "Harmonica Town (lighthouse, beach), Toucan Island (south shore, west shore)", season: "Any season", weather: "Sunny, Cloudy, Rain, Snow, Snowstorm", time: "Any time", exp: 80, spriteId: 27},
-            {name: "Red Snapper", price: 139, location: "Multiple", specificLocation: "Harmonica Town (seawall, lighthouse, beach), Toucan Island (shores), Water Cave (floor 50)", season: "Summer, Fall", weather: "Any weather", time: "3:00 pm to 5:00 am", exp: 21, spriteId: 28},
-            {name: "Scallop", price: 125, location: "Multiple", specificLocation: "Clarinet District (shores), Harmonica Town (seawall, lighthouse, beach), Toucan Island (shores), Water Cave (floor 50)", season: "Any season", weather: "Any weather", time: "3:00 pm to 9:00 am", exp: 25, spriteId: 29},
-            {name: "Shrimp", price: 67, location: "Multiple", specificLocation: "Clarinet District (southwest shore), Harmonica Town (seawall, dock, lighthouse), Toucan Island (northeast shore)", season: "Any season", weather: "Any weather", time: "5:00 am to 7:00 pm", exp: 11, spriteId: 30},
-            {name: "Turban Shell", price: 51, location: "Toucan Island", specificLocation: "all shores", season: "Any season", weather: "Any weather", time: "7:00 pm to 9:00 am", exp: 11, spriteId: 31},
-            {name: "Conch", price: 60, location: "Multiple", specificLocation: "Clarinet District (shores), Harmonica Town (dock, lighthouse, beach), Toucan Island (all shores), Water Cave (floor 0)", season: "Any season", weather: "Any weather", time: "3:00 pm to 9:00 am", exp: 12, spriteId: 32},
-            {name: "Pond Smelt", price: 7, location: "Multiple", specificLocation: "Clarinet District (pond, stream), Goddess Pond (shrine, divine tree), Flute Fields (river west), Fugue Forest (footbridge), Toucan Island (pond)", season: "Any season", weather: "Any weather", time: "Any time", exp: 10, spriteId: 33},
-            {name: "Sweetfish", price: 23, location: "Multiple", specificLocation: "Clarinet District (pond, stream), Garmon Mine (stream), Flute Fields (west shore, bridge south), Fugue Forest (footbridge west), Water Cave (floor 50)", season: "Any season", weather: "Any weather", time: "7:00 pm to 9:00 am", exp: 12, spriteId: 34},
-            {name: "Eel", price: 91, location: "Multiple", specificLocation: "Clarinet District (shores), Harmonica Town (seawall, dock), Toucan Island (south shore), Water Cave (floor 0, floor 50)", season: "Any season", weather: "Any weather", time: "3:00 pm to 5:00 am", exp: 18, spriteId: 35},
-            {name: "Shark", price: 180, location: "Toucan Island", specificLocation: "all shores", season: "Any season", weather: "Any weather", time: "7:00 pm to 5:00 am", exp: 55, spriteId: 36},
-            {name: "Marlin", price: 347, location: "Toucan Island", specificLocation: "south shore, north shore, northeast shore", season: "Any season", weather: "Any weather", time: "5:00 am to 9:00 am, 3:00 pm to 9:00 pm", exp: 80, spriteId: 37},
-            {name: "King Fish", price: 665, location: "Water Cave", specificLocation: "floor 50 (south end)", season: "Spring, Fall", weather: "Any weather", time: "7:00 pm to 5:00 am", exp: 120, spriteId: 38},
-            {name: "Ancient Fish", price: 650, location: "Goddess Pond", specificLocation: "shrine waters (right side)", season: "Spring, Summer, Fall", weather: "Rain, Thunderstorm, Hurricane", time: "5:00 am to 7:00 pm", exp: 130, spriteId: 39},
-            {name: "Sunfish", price: 680, location: "Toucan Island", specificLocation: "south shore", season: "Any season", weather: "Sunny, Cloudy, Snow, Snowstorm", time: "8:00 am to 7:00 pm", exp: 130, spriteId: 40},
-            {name: "Mahi-Mahi", price: 800, location: "Toucan Island", specificLocation: "northeast shore", season: "Spring, Winter", weather: "Sunny, Cloudy, Snow, Snowstorm", time: "7:00 pm to 3:00 pm", exp: 130, spriteId: 41},
-            {name: "Giant Catfish", price: 700, location: "Fugue Forest", specificLocation: "footbridge, left", season: "Spring, Summer", weather: "Rain, Thunderstorm, Hurricane", time: "Any time", exp: 130, spriteId: 42},
-            {name: "Arowana", price: 830, location: "Water Cave", specificLocation: "floor 0", season: "Spring, Summer, Fall", weather: "Sunny, Cloudy, Thunderstorm, Hurricane", time: "3:00 pm to 5:00 am", exp: 130, spriteId: 43},
-            {name: "Dorado", price: 760, location: "Flute Fields", specificLocation: "bridge, south", season: "Summer, Fall", weather: "Sunny, Cloudy, Hurricane", time: "7:00 pm to 9:00 am", exp: 110, spriteId: 44},
-            {name: "Stringfish", price: 850, location: "Harmonica Town", specificLocation: "lighthouse", season: "Spring, Winter", weather: "Sunny", time: "Any time", exp: 110, spriteId: 45},
-            {name: "Dace", price: 79, location: "Multiple", specificLocation: "Clarinet District (pond), Garmon Mine (stream), Flute Fields (bridge north/south, river west)", season: "Any season", weather: "Any weather", time: "5:00 am to 7:00 pm", exp: 19, spriteId: 46},
-            {name: "Sea Urchin", price: 76, location: "Multiple", specificLocation: "Clarinet District (shores), Harmonica Town (seawall, lighthouse, beach), Toucan Island (northeast shore), Water Cave (floor 0)", season: "Spring, Winter", weather: "Any weather", time: "7:00 pm to 5:00 am", exp: 12, spriteId: 47}
+            {name: "Swordfish", price: 322, location: "Toucan Island", specificLocation: "south shore, west shore", season: "Any season", weather: "Any weather", time: "All day", exp: 65, spriteId: 1},
+            {name: "Char", price: 99, location: "Goddess Pond", specificLocation: "shrine waters, behind divine tree", season: "Any season", weather: "Any weather", time: "5am-3pm", exp: 20, spriteId: 2},
+            {name: "Rainbow Trout", price: 58, location: "Multiple", specificLocation: "Clarinet District (stream), Garmon Mine (waterfall, stream), Flute Fields (bridge south/north), Toucan Island (pond)", season: "Any season", weather: "Any weather", time: "5am-7pm", exp: 13, spriteId: 3},
+            {name: "Masu Trout", price: 109, location: "Multiple", specificLocation: "Garmon Mine (waterfall), Flute Fields (bridge south, pond)", season: "Spring, Summer, Fall", weather: "Any weather", time: "5am-3pm", exp: 10, spriteId: 4},
+            {name: "Steelhead", price: 72, location: "Flute Fields", specificLocation: "river west, bridge north/south", season: "Any season", weather: "Any weather", time: "7pm-9am", exp: 23, spriteId: 5},
+            {name: "Carp", price: 59, location: "Multiple", specificLocation: "Clarinet District (pond), Goddess Pond (shrine, divine tree), Fugue Forest (footbridge left)", season: "Any season", weather: "Any weather", time: "Any time", exp: 20, spriteId: 6},
+            {name: "Eel", price: 198, location: "Multiple", specificLocation: "Garmon Mine (waterfall), Flute Fields (bridge south), Water Cave (Floor 0, Floor 50)", season: "Summer, Fall, Winter", weather: "Any weather", time: "3pm-5am", exp: 55, spriteId: 7},
+            {name: "Pond Smelt", price: 7, location: "Multiple", specificLocation: "Clarinet District (pond, stream), Goddess Pond (shrine, divine tree), Flute Fields (river west), Fugue Forest (footbridge), Toucan Island (pond)", season: "Any season", weather: "Any weather", time: "Any time", exp: 10, spriteId: 8},
+            {name: "Huchen", price: 250, location: "Multiple", specificLocation: "Garmon Mine (waterfall), Flute Fields (bridge south)", season: "Spring, Winter", weather: "Rain, Thunderstorm, Hurricane, Snow, Snowstorm", time: "7pm-9am", exp: 80, spriteId: 9},
+            {name: "Salmon", price: 277, location: "Flute Fields", specificLocation: "bridge north, bridge south", season: "Fall", weather: "Any weather", time: "5am-7pm", exp: 32, spriteId: 10},
+            {name: "Catfish", price: 106, location: "Multiple", specificLocation: "Clarinet District (pond, stream), Fugue Forest (footbridge), Goddess Pond (shrine, divine tree)", season: "Any season", weather: "Any weather", time: "3pm-5am", exp: 15, spriteId: 11},
+            {name: "Puffer", price: 17, location: "Multiple", specificLocation: "Clarinet District (shores), Harmonica Town (seawall, dock, lighthouse, beach), Water Cave (floor 0)", season: "Spring, Winter", weather: "Any weather", time: "Any time", exp: 13, spriteId: 12},
+            {name: "Goby", price: 13, location: "Multiple", specificLocation: "Clarinet District (shores), Harmonica Town (seawall, dock, lighthouse, beach), Toucan Island (shores), Water Cave", season: "Any season", weather: "Any weather", time: "5am-7pm", exp: 10, spriteId: 13},
+            {name: "Sardine", price: 17, location: "Multiple", specificLocation: "Clarinet District (southwest shore), Harmonica Town (seawall, dock, lighthouse, beach), Water Cave (floor 0)", season: "Any season", weather: "Any weather", time: "Any time", exp: 12, spriteId: 14},
+            {name: "Mahi-mahi", price: 286, location: "Toucan Island", specificLocation: "all shores", season: "Any season", weather: "Sunny, Clear, Cloudy", time: "Any time", exp: 33, spriteId: 15},
+            {name: "Horse Mackerel", price: 81, location: "Multiple", specificLocation: "Clarinet District (southwest shore), Harmonica Town (seawall, dock, lighthouse, beach), Water Cave (floor 0)", season: "Any season", weather: "Any weather", time: "Any time", exp: 15, spriteId: 16},
+            {name: "Sea Bream", price: 149, location: "Multiple", specificLocation: "Clarinet District (southwest shore), Harmonica Town (seawall, dock, lighthouse, beach)", season: "Spring, Summer, Fall", weather: "Any weather", time: "5am-9am, 3pm-7pm", exp: 32, spriteId: 17},
+            {name: "Bonito", price: 120, location: "Multiple", specificLocation: "Clarinet District (southeast shore), Harmonica Town (seawall, lighthouse, beach), Toucan Island (south shore, northeast shore)", season: "Summer, Fall", weather: "Any weather", time: "8am-7pm", exp: 25, spriteId: 18},
+            {name: "Mackerel", price: 85, location: "Multiple", specificLocation: "Clarinet District (southwest shore), Harmonica Town (seawall, dock, lighthouse, beach), Water Cave (floor 0)", season: "Spring, Fall, Winter", weather: "Any weather", time: "5am-7pm", exp: 18, spriteId: 19},
+            {name: "Saury", price: 92, location: "Multiple", specificLocation: "Clarinet District (shores), Harmonica Town (dock, lighthouse, beach), Toucan Island (shores)", season: "Any season", weather: "Any weather", time: "3pm-9am", exp: 8, spriteId: 20},
+            {name: "Manta Ray", price: 173, location: "Toucan Island", specificLocation: "all shores", season: "Any season", weather: "Sunny, Thunderstorm, Hurricane, Snow, Snowstorm", time: "5am-3pm", exp: 30, spriteId: 21},
+            {name: "Rockfish", price: 76, location: "Multiple", specificLocation: "Toucan Island (all shores), Water Cave (floor 0)", season: "Spring, Summer, Fall", weather: "Any weather", time: "Any time", exp: 20, spriteId: 22},
+            {name: "Cod", price: 84, location: "Multiple", specificLocation: "Clarinet District (shores), Harmonica Town (dock, lighthouse, beach), Toucan Island (east shore)", season: "Fall, Winter", weather: "Any weather", time: "7pm-3pm", exp: 8, spriteId: 23},
+            {name: "Angler Fish", price: 330, location: "Multiple", specificLocation: "Harmonica Town (lighthouse, beach), Water Cave (floor 50)", season: "Fall, Winter", weather: "Any weather", time: "3pm-9am", exp: 80, spriteId: 24},
+            {name: "Rock Trout", price: 119, location: "Multiple", specificLocation: "Clarinet District (shores), Harmonica Town (dock, lighthouse, beach), Toucan Island (northeast shore)", season: "Spring, Winter", weather: "Any weather", time: "7pm-3pm", exp: 24, spriteId: 25},
+            {name: "Yellowtail", price: 153, location: "Toucan Island", specificLocation: "all shores", season: "Spring, Winter", weather: "Any weather", time: "3pm-9am", exp: 25, spriteId: 26},
+            {name: "Tuna", price: 317, location: "Multiple", specificLocation: "Harmonica Town (lighthouse, beach), Toucan Island (south shore, west shore)", season: "Any season", weather: "Sunny, Cloudy, Rain, Snow, Snowstorm", time: "Any time", exp: 80, spriteId: 27},
+            {name: "Conger Eel", price: 139, location: "Multiple", specificLocation: "Harmonica Town (seawall, lighthouse, beach), Toucan Island (shores), Water Cave (floor 50)", season: "Summer, Fall", weather: "Any weather", time: "3pm-5am", exp: 21, spriteId: 28},
+            {name: "Halibut", price: 125, location: "Multiple", specificLocation: "Clarinet District (shores), Harmonica Town (seawall, lighthouse, beach), Toucan Island (shores), Water Cave (floor 50)", season: "Any season", weather: "Any weather", time: "3pm-9am", exp: 25, spriteId: 29},
+            {name: "Flounder", price: 67, location: "Multiple", specificLocation: "Clarinet District (southwest shore), Harmonica Town (seawall, dock, lighthouse), Toucan Island (northeast shore)", season: "Any season", weather: "Any weather", time: "5am-7pm", exp: 11, spriteId: 30},
+            {name: "Squid", price: 51, location: "Toucan Island", specificLocation: "all shores", season: "Any season", weather: "Any weather", time: "7pm-9am", exp: 11, spriteId: 31},
+            {name: "Octopus", price: 60, location: "Multiple", specificLocation: "Clarinet District (shores), Harmonica Town (dock, lighthouse, beach), Toucan Island (all shores), Water Cave (floor 0)", season: "Any season", weather: "Any weather", time: "3pm-9am", exp: 12, spriteId: 32},
+            {name: "Crawfish", price: 7, location: "Multiple", specificLocation: "Clarinet District (pond, stream), Goddess Pond (shrine, divine tree), Flute Fields (river west), Fugue Forest (footbridge), Toucan Island (pond)", season: "Any season", weather: "Any weather", time: "Any time", exp: 10, spriteId: 33},
+            {name: "Freshwater Prawn", price: 23, location: "Multiple", specificLocation: "Clarinet District (pond, stream), Garmon Mine (stream), Flute Fields (west shore, bridge south), Fugue Forest (footbridge west), Water Cave (floor 50)", season: "Any season", weather: "Any weather", time: "7pm-9am", exp: 12, spriteId: 34},
+            {name: "Rock Lobster", price: 91, location: "Multiple", specificLocation: "Clarinet District (shores), Harmonica Town (seawall, dock), Toucan Island (south shore), Water Cave (floor 0, floor 50)", season: "Any season", weather: "Any weather", time: "3pm-5am", exp: 18, spriteId: 35},
+            {name: "Lobster", price: 180, location: "Toucan Island", specificLocation: "all shores", season: "Any season", weather: "Any weather", time: "7pm-5am", exp: 55, spriteId: 36},
+            {name: "Shark", price: 347, location: "Toucan Island", specificLocation: "south shore, north shore, northeast shore", season: "Any season", weather: "Any weather", time: "5am-9am, 3pm-9pm", exp: 80, spriteId: 37},
+            {name: "Skull Jellyfish", price: 665, location: "Water Cave", specificLocation: "floor 50 (south end)", season: "Spring, Fall", weather: "Any weather", time: "7pm-5am", exp: 120, spriteId: 38},
+            {name: "Giant Arowana", price: 650, location: "Goddess Pond", specificLocation: "shrine waters (right side)", season: "Spring, Summer, Fall", weather: "Rain, Thunderstorm, Hurricane", time: "5am-7pm", exp: 130, spriteId: 39},
+            {name: "Barracuda", price: 680, location: "Toucan Island", specificLocation: "south shore", season: "Any season", weather: "Sunny, Cloudy, Snow, Snowstorm", time: "8am-7pm", exp: 130, spriteId: 40},
+            {name: "Tarpon", price: 800, location: "Toucan Island", specificLocation: "northeast shore", season: "Spring, Winter", weather: "Sunny, Cloudy, Snow, Snowstorm", time: "7pm-3pm", exp: 130, spriteId: 41},
+            {name: "Dorado", price: 700, location: "Fugue Forest", specificLocation: "footbridge, left", season: "Spring, Summer", weather: "Rain, Thunderstorm, Hurricane", time: "Any time", exp: 130, spriteId: 42},
+            {name: "Nautilus", price: 830, location: "Water Cave", specificLocation: "floor 0", season: "Spring, Summer, Fall", weather: "Sunny, Cloudy, Thunderstorm, Hurricane", time: "3pm-5am", exp: 130, spriteId: 43},
+            {name: "King Salmon", price: 760, location: "Flute Fields", specificLocation: "bridge, south", season: "Summer, Fall", weather: "Sunny, Cloudy, Hurricane", time: "7pm-9am", exp: 110, spriteId: 44},
+            {name: "Giant Halibut", price: 850, location: "Harmonica Town", specificLocation: "lighthouse", season: "Spring, Winter", weather: "Sunny", time: "Any time", exp: 110, spriteId: 45},
+            {name: "Brown Trout", price: 79, location: "Multiple", specificLocation: "Clarinet District (pond), Garmon Mine (stream), Flute Fields (bridge north/south, river west)", season: "Any season", weather: "Any weather", time: "5am-7pm", exp: 19, spriteId: 46},
+            {name: "Herring", price: 76, location: "Multiple", specificLocation: "Clarinet District (shores), Harmonica Town (seawall, lighthouse, beach), Toucan Island (northeast shore), Water Cave (floor 0)", season: "Spring, Winter", weather: "Any weather", time: "7pm-5am", exp: 12, spriteId: 47}
         ];
 
         let currentSortOrder = 'asc';
 
         function categorizeSeasons(season) {
             if (season === "Any season") return "Any Season";
-            if (season.includes("Spring")) return "Spring";
-            if (season.includes("Summer")) return "Summer";
-            if (season.includes("Fall")) return "Fall";
-            if (season.includes("Winter")) return "Winter";
+            
+            // Handle multiple seasons properly
+            const seasons = [];
+            if (season.includes("Spring")) seasons.push("Spring");
+            if (season.includes("Summer")) seasons.push("Summer");
+            if (season.includes("Fall")) seasons.push("Fall");
+            if (season.includes("Winter")) seasons.push("Winter");
+            
+            // Return all applicable seasons
+            if (seasons.length === 1) return seasons[0];
+            if (seasons.length > 1) return seasons; // Return array for multiple seasons
+            
             return "Multiple Seasons";
         }
 
@@ -527,14 +535,19 @@
             const grouped = {};
             
             fishData.forEach(fish => {
-                const season = categorizeSeasons(fish.season);
+                const seasons = categorizeSeasons(fish.season);
                 const locations = parseLocations(fish);
                 
-                locations.forEach(location => {
-                    if (!grouped[season]) grouped[season] = {};
-                    if (!grouped[season][location]) grouped[season][location] = [];
-                    
-                    grouped[season][location].push(fish);
+                // Handle both single season and multiple seasons
+                const seasonArray = Array.isArray(seasons) ? seasons : [seasons];
+                
+                seasonArray.forEach(season => {
+                    locations.forEach(location => {
+                        if (!grouped[season]) grouped[season] = {};
+                        if (!grouped[season][location]) grouped[season][location] = [];
+                        
+                        grouped[season][location].push(fish);
+                    });
                 });
             });
             
