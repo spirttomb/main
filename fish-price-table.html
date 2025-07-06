@@ -114,6 +114,30 @@
             border-radius: 10px;
             overflow: hidden;
             background: #2a2a2a;
+            position: relative;
+        }
+        
+        .season-separator {
+            height: 3px;
+            margin: 30px 20px;
+            background: linear-gradient(90deg, transparent 0%, #555 20%, #666 50%, #555 80%, transparent 100%);
+            border-radius: 2px;
+            position: relative;
+        }
+        
+        .season-separator::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, #777 20%, #888 50%, #777 80%, transparent 100%);
+            border-radius: 1px;
+        }
+        
+        .season-separator.first {
+            display: none;
         }
         
         .season-header {
@@ -364,6 +388,11 @@
                 margin: 10px;
             }
             
+            .season-separator {
+                margin: 20px 10px;
+                height: 2px;
+            }
+            
             .season-header {
                 font-size: 1.2em;
                 padding: 12px;
@@ -427,6 +456,11 @@
             
             .header p {
                 font-size: 0.9em;
+            }
+            
+            .season-separator {
+                margin: 15px 5px;
+                height: 2px;
             }
             
             .season-header {
@@ -665,8 +699,15 @@
             // Order seasons logically
             const seasonOrder = ['Spring', 'Summer', 'Fall', 'Winter', 'Any Season', 'Multiple Seasons'];
             
+            let isFirstSeason = true;
             seasonOrder.forEach(season => {
                 if (grouped[season]) {
+                    // Add separator before each season except the first
+                    if (!isFirstSeason) {
+                        html += `<div class="season-separator"></div>`;
+                    }
+                    isFirstSeason = false;
+                    
                     const seasonClass = season.toLowerCase().replace(/\s+/g, '-');
                     html += `<div class="season-section" id="season-${seasonClass}">
                         <div class="season-header ${seasonClass}">${season}</div>`;
