@@ -493,6 +493,17 @@
             return "*";
         }
 
+        function cleanTime(time) {
+            if (time === "All day" || time === "Any time") return time;
+            
+            return time
+                .replace(/(\d+):00\s*/g, '$1') // Remove ":00" from times
+                .replace(/\s+am/g, 'am')       // Remove spaces before am
+                .replace(/\s+pm/g, 'pm')       // Remove spaces before pm
+                .replace(/\s+to\s+/g, '-')     // Replace " to " with "-"
+                .replace(/,\s+/g, ',');        // Remove spaces after commas
+        }
+
 
 
         function getFishImageUrl(spriteId) {
@@ -574,7 +585,7 @@
                                 <td class="fish-name">${fish.name}</td>
                                 <td class="price">${fish.price} G</td>
                                 <td class="weather">${getWeatherSymbol(fish.weather)}</td>
-                                <td class="time">${fish.time}</td>
+                                <td class="time">${cleanTime(fish.time)}</td>
                                 <td class="exp">${fish.exp}</td>
                                 <td>${fish.specificLocation}</td>
                             </tr>`;
