@@ -384,9 +384,77 @@
             color: #a3e635;
         }
         
+        /* Mobile Card Layout */
+        .fish-card {
+            display: none;
+            background: #2a2a2a;
+            border: 1px solid #444;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .fish-card:hover {
+            background: #333;
+            border-color: #555;
+        }
+        
+        .fish-card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .fish-card-portrait {
+            width: 48px;
+            height: 36px;
+            border-radius: 4px;
+            border: 1px solid #444;
+            background: #1a1a1a;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+        
+        .fish-card-name {
+            font-weight: bold;
+            color: #90cdf4;
+            font-size: 1.1em;
+            flex-grow: 1;
+        }
+        
+        .fish-card-price {
+            font-weight: bold;
+            color: #68d391;
+            font-size: 1.2em;
+        }
+        
+        .fish-card-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+        
+        .fish-card-detail {
+            color: #a0aec0;
+        }
+        
+        .fish-card-detail strong {
+            color: #e0e0e0;
+        }
+        
+        .fish-card-location {
+            grid-column: 1 / -1;
+            margin-top: 5px;
+            font-size: 0.85em;
+            color: #8a8a8a;
+        }
+
         @media (max-width: 768px) {
             body {
-                padding: 10px;
+                padding: 5px;
             }
             
             .container {
@@ -418,7 +486,7 @@
             }
             
             .season-section {
-                margin: 10px;
+                margin: 5px;
             }
             
             .season-separator {
@@ -440,32 +508,14 @@
                 padding: 8px;
             }
             
-            table {
-                font-size: 0.85em;
-                min-width: 800px;
+            /* Hide table on mobile */
+            .table-wrapper {
+                display: none;
             }
             
-            th, td {
-                padding: 8px 4px;
-                white-space: nowrap;
-            }
-            
-            .fish-name {
-                min-width: 100px;
-            }
-            
-            .price {
-                min-width: 60px;
-            }
-            
-            .fish-portrait {
-                width: 40px;
-                height: 30px;
-            }
-            
-            .fish-portrait-cell {
-                width: 50px;
-                padding: 4px;
+            /* Show mobile cards */
+            .fish-card {
+                display: block;
             }
             
             .floating-nav {
@@ -483,6 +533,10 @@
         }
         
         @media (max-width: 480px) {
+            body {
+                padding: 2px;
+            }
+            
             .header h1 {
                 font-size: 1.5em;
             }
@@ -501,23 +555,26 @@
                 padding: 10px;
             }
             
-            table {
-                font-size: 0.8em;
-                min-width: 750px;
+            .fish-card {
+                padding: 12px;
+                margin: 8px 0;
             }
             
-            th, td {
-                padding: 6px 3px;
+            .fish-card-portrait {
+                width: 40px;
+                height: 30px;
             }
             
-            .fish-portrait {
-                width: 36px;
-                height: 27px;
+            .fish-card-name {
+                font-size: 1em;
             }
             
-            .fish-portrait-cell {
-                width: 44px;
-                padding: 3px;
+            .fish-card-price {
+                font-size: 1.1em;
+            }
+            
+            .fish-card-details {
+                font-size: 0.85em;
             }
             
             .sort-btn, .season-nav-btn {
@@ -751,6 +808,8 @@
                     Object.keys(grouped[season]).sort().forEach(location => {
                         html += `<div class="location-group">
                             <div class="location-header">${location}</div>
+                            
+                            <!-- Desktop Table -->
                             <div class="table-wrapper">
                                 <table>
                                     <thead>
@@ -780,7 +839,34 @@
                             </tr>`;
                         });
                         
-                        html += '</tbody></table></div></div>';
+                        html += '</tbody></table></div>';
+                        
+                        // Mobile Cards
+                        grouped[season][location].forEach(fish => {
+                            html += `<div class="fish-card">
+                                <div class="fish-card-header">
+                                    <img src="${getFishImageUrl(fish.spriteId)}" alt="${fish.name}" class="fish-card-portrait" onerror="this.style.display='none'">
+                                    <div class="fish-card-name">${fish.name}</div>
+                                    <div class="fish-card-price">${fish.price} G</div>
+                                </div>
+                                <div class="fish-card-details">
+                                    <div class="fish-card-detail">
+                                        <strong>Time:</strong> ${cleanTime(fish.time)}
+                                    </div>
+                                    <div class="fish-card-detail">
+                                        <strong>Weather:</strong> ${getWeatherSymbol(fish.weather)}
+                                    </div>
+                                    <div class="fish-card-detail">
+                                        <strong>EXP:</strong> ${fish.exp}
+                                    </div>
+                                </div>
+                                <div class="fish-card-location">
+                                    <strong>Location:</strong> ${fish.specificLocation}
+                                </div>
+                            </div>`;
+                        });
+                        
+                        html += '</div>';
                     });
                     
                     html += '</div>';
