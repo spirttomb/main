@@ -1,4 +1,4 @@
-const CACHE_NAME = 'fish-guide-v1';
+const CACHE_NAME = 'fish-guide-v2';
 const urlsToCache = [
   './',
   './fish-price-table.html',
