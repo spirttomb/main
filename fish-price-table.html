@@ -581,6 +581,26 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .cart-item-totals {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 4px;
+            margin-right: 10px;
+        }
+
+        .cart-item-total {
+            color: #68d391;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .cart-item-unit-price {
+            color: #a0aec0;
+            font-size: 12px;
         }
 
         .quantity-btn {
@@ -852,6 +872,14 @@
             .cart-item-controls {
                 flex-direction: column;
                 gap: 8px;
+                align-items: center;
+            }
+
+            .cart-item-totals {
+                order: -1;
+                margin-right: 0;
+                margin-bottom: 8px;
+                align-items: center;
             }
 
             .quantity-btn {
@@ -1321,7 +1349,9 @@
                 cartFooter.style.display = 'block';
                 cartTotal.textContent = `${totalValue} G`;
                 
-                cartItems.innerHTML = Object.values(cart).map(item => `
+                cartItems.innerHTML = Object.values(cart).map(item => {
+                    const itemTotal = item.price * item.quantity;
+                    return `
                     <div class="cart-item">
                         <img src="${getFishImageUrl(item.spriteId)}" alt="${item.name}" class="cart-item-image" onerror="this.style.display='none'">
                         <div class="cart-item-info">
@@ -1332,10 +1362,15 @@
                             <button class="quantity-btn" onclick="updateQuantity('${item.name}', ${item.quantity - 1})">-</button>
                             <div class="quantity-display">${item.quantity}</div>
                             <button class="quantity-btn" onclick="updateQuantity('${item.name}', ${item.quantity + 1})">+</button>
+                            <div class="cart-item-totals">
+                                <div class="cart-item-total">${itemTotal} G</div>
+                                <div class="cart-item-unit-price">${item.quantity} × ${item.price}</div>
+                            </div>
                             <button class="remove-btn" onclick="removeFromCart('${item.name}')">Remove</button>
                         </div>
                     </div>
-                `).join('');
+                `;
+                }).join('');
             }
         }
 
