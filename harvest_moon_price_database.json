@@ -1,0 +1,585 @@
+{
+  "harvest_moon_animal_parade_prices": {
+    "fish": {
+      "small_fish": {
+        "base_price": 50,
+        "grilled_price": 70,
+        "seasons": ["Spring", "Summer", "Fall", "Winter"],
+        "location": "Pond"
+      },
+      "medium_fish": {
+        "base_price": 80,
+        "grilled_price": 110,
+        "seasons": ["Spring", "Summer", "Fall", "Winter"],
+        "location": "River"
+      },
+      "large_fish": {
+        "base_price": 120,
+        "grilled_price": 160,
+        "seasons": ["Spring", "Summer", "Fall", "Winter"],
+        "location": "River"
+      },
+      "sea_bream": {
+        "base_price": 150,
+        "grilled_price": 200,
+        "seasons": ["Spring", "Summer"],
+        "location": "Ocean"
+      },
+      "tuna": {
+        "base_price": 800,
+        "grilled_price": 1050,
+        "seasons": ["Summer", "Fall"],
+        "location": "Ocean"
+      },
+      "salmon": {
+        "base_price": 200,
+        "grilled_price": 260,
+        "seasons": ["Fall"],
+        "location": "River"
+      },
+      "rainbow_trout": {
+        "base_price": 180,
+        "grilled_price": 235,
+        "seasons": ["Spring", "Fall"],
+        "location": "River"
+      }
+    },
+    "crops": {
+      "spring": {
+        "turnip": {
+          "growth_days": 4,
+          "prices": {
+            "decent": 170,
+            "good": 204,
+            "perfect": 255,
+            "shining": 340
+          },
+          "regrows": false
+        },
+        "potato": {
+          "growth_days": 7,
+          "prices": {
+            "decent": 190,
+            "good": 228,
+            "perfect": 285,
+            "shining": 380
+          },
+          "regrows": false
+        },
+        "strawberry": {
+          "growth_days": 9,
+          "prices": {
+            "decent": 180,
+            "good": 216,
+            "perfect": 270,
+            "shining": 410
+          },
+          "regrows": true,
+          "regrow_days": 3
+        },
+        "cabbage": {
+          "growth_days": 14,
+          "prices": {
+            "decent": 280,
+            "good": 336,
+            "perfect": 420,
+            "shining": 560
+          },
+          "regrows": false
+        }
+      },
+      "summer": {
+        "corn": {
+          "growth_days": 14,
+          "prices": {
+            "decent": 160,
+            "good": 192,
+            "perfect": 240,
+            "shining": 310
+          },
+          "regrows": true,
+          "regrow_days": 4
+        },
+        "tomato": {
+          "growth_days": 9,
+          "prices": {
+            "decent": 120,
+            "good": 144,
+            "perfect": 180,
+            "shining": 240
+          },
+          "regrows": true,
+          "regrow_days": 3
+        },
+        "onion": {
+          "growth_days": 7,
+          "prices": {
+            "decent": 150,
+            "good": 180,
+            "perfect": 225,
+            "shining": 300
+          },
+          "regrows": false
+        },
+        "pineapple": {
+          "growth_days": 20,
+          "prices": {
+            "decent": 500,
+            "good": 600,
+            "perfect": 750,
+            "shining": 1000
+          },
+          "regrows": false
+        }
+      },
+      "fall": {
+        "eggplant": {
+          "growth_days": 9,
+          "prices": {
+            "decent": 130,
+            "good": 156,
+            "perfect": 195,
+            "shining": 260
+          },
+          "regrows": true,
+          "regrow_days": 3
+        },
+        "carrot": {
+          "growth_days": 7,
+          "prices": {
+            "decent": 160,
+            "good": 192,
+            "perfect": 240,
+            "shining": 320
+          },
+          "regrows": false
+        },
+        "sweet_potato": {
+          "growth_days": 5,
+          "prices": {
+            "decent": 140,
+            "good": 168,
+            "perfect": 210,
+            "shining": 280
+          },
+          "regrows": false
+        },
+        "rice": {
+          "growth_days": 10,
+          "prices": {
+            "decent": 210,
+            "good": 252,
+            "perfect": 315,
+            "shining": 400
+          },
+          "regrows": false,
+          "requires_paddy": true
+        }
+      },
+      "winter": {
+        "turnip": {
+          "growth_days": 4,
+          "prices": {
+            "decent": 170,
+            "good": 204,
+            "perfect": 255,
+            "shining": 340
+          },
+          "regrows": false
+        }
+      }
+    },
+    "animal_products": {
+      "eggs": {
+        "chicken_egg": {
+          "prices": {
+            "decent": 50,
+            "good": 75,
+            "perfect": 100,
+            "shining": 150
+          },
+          "daily_production": true
+        },
+        "duck_egg": {
+          "prices": {
+            "decent": 80,
+            "good": 120,
+            "perfect": 160,
+            "shining": 240
+          },
+          "daily_production": true
+        },
+        "ostrich_egg": {
+          "prices": {
+            "decent": 350,
+            "good": 525,
+            "perfect": 700,
+            "shining": 1050
+          },
+          "daily_production": false,
+          "frequency": "every_3_days"
+        }
+      },
+      "milk": {
+        "cow_milk": {
+          "prices": {
+            "decent": 170,
+            "good": 255,
+            "perfect": 340,
+            "shining": 510
+          },
+          "daily_production": true
+        },
+        "goat_milk": {
+          "prices": {
+            "decent": 140,
+            "good": 210,
+            "perfect": 280,
+            "shining": 480
+          },
+          "daily_production": true
+        },
+        "sheep_milk": {
+          "prices": {
+            "decent": 120,
+            "good": 180,
+            "perfect": 240,
+            "shining": 460
+          },
+          "daily_production": true
+        }
+      },
+      "other": {
+        "wool": {
+          "prices": {
+            "decent": 620,
+            "good": 930,
+            "perfect": 1240,
+            "shining": 1820
+          },
+          "frequency": "weekly"
+        },
+        "honey": {
+          "prices": {
+            "decent": 50,
+            "good": 100,
+            "perfect": 150,
+            "shining": 250
+          },
+          "frequency": "every_3_days"
+        },
+        "silk": {
+          "prices": {
+            "decent": 660,
+            "good": 990,
+            "perfect": 1320,
+            "shining": 1980
+          },
+          "frequency": "weekly"
+        }
+      }
+    },
+    "mining_items": {
+      "ores": {
+        "junk_ore": {
+          "base_price": 10,
+          "rarity": "common",
+          "floors": "1-19"
+        },
+        "iron_ore": {
+          "base_price": 20,
+          "rarity": "common",
+          "floors": "20-39"
+        },
+        "copper_ore": {
+          "base_price": 30,
+          "rarity": "common",
+          "floors": "40-59"
+        },
+        "silver_ore": {
+          "base_price": 50,
+          "rarity": "uncommon",
+          "floors": "60-79"
+        },
+        "gold_ore": {
+          "base_price": 80,
+          "rarity": "uncommon",
+          "floors": "80-99"
+        },
+        "rare_ore": {
+          "base_price": 150,
+          "rarity": "rare",
+          "floors": "100+"
+        }
+      },
+      "refined_materials": {
+        "iron": {
+          "base_price": 50,
+          "requires": "iron_ore"
+        },
+        "copper": {
+          "base_price": 70,
+          "requires": "copper_ore"
+        },
+        "silver": {
+          "base_price": 100,
+          "requires": "silver_ore"
+        },
+        "gold": {
+          "base_price": 150,
+          "requires": "gold_ore"
+        },
+        "rare_metal": {
+          "base_price": 240,
+          "requires": "rare_ore"
+        }
+      },
+      "gems": {
+        "diamond": {
+          "base_price": 1330,
+          "rarity": "very_rare"
+        },
+        "ruby": {
+          "base_price": 830,
+          "rarity": "rare"
+        },
+        "emerald": {
+          "base_price": 690,
+          "rarity": "rare"
+        },
+        "sapphire": {
+          "base_price": 620,
+          "rarity": "rare"
+        },
+        "topaz": {
+          "base_price": 340,
+          "rarity": "uncommon"
+        },
+        "amethyst": {
+          "base_price": 280,
+          "rarity": "uncommon"
+        }
+      },
+      "wonderfuls": {
+        "red_wonderful": {
+          "base_price": 30,
+          "refined_gem": "ruby",
+          "color": "red"
+        },
+        "blue_wonderful": {
+          "base_price": 30,
+          "refined_gem": "sapphire",
+          "color": "blue"
+        },
+        "green_wonderful": {
+          "base_price": 30,
+          "refined_gem": "emerald",
+          "color": "green"
+        },
+        "yellow_wonderful": {
+          "base_price": 30,
+          "refined_gem": "topaz",
+          "color": "yellow"
+        },
+        "purple_wonderful": {
+          "base_price": 30,
+          "refined_gem": "amethyst",
+          "color": "purple"
+        },
+        "white_wonderful": {
+          "base_price": 30,
+          "refined_gem": "diamond",
+          "color": "white"
+        }
+      },
+      "special_items": {
+        "pearl": {
+          "prices": {
+            "small": 90,
+            "medium": 120,
+            "large": 150
+          }
+        },
+        "rock_salt": {
+          "base_price": 50
+        }
+      }
+    },
+    "artisan_goods": {
+      "cooked_dishes": {
+        "pizza": {
+          "base_price": 792,
+          "cooking_method": "oven",
+          "energy_recovery": "high"
+        },
+        "sushi": {
+          "price_range": "290-1833",
+          "cooking_method": "cutting_board",
+          "depends_on_ingredients": true
+        },
+        "cake": {
+          "base_price": 680,
+          "cooking_method": "oven",
+          "energy_recovery": "high"
+        },
+        "bread": {
+          "base_price": 180,
+          "cooking_method": "oven",
+          "energy_recovery": "medium"
+        },
+        "curry": {
+          "base_price": 420,
+          "cooking_method": "pot",
+          "energy_recovery": "high"
+        }
+      },
+      "processed_foods": {
+        "mayonnaise": {
+          "price_range": "75-225",
+          "requires": "egg",
+          "quality_dependent": true
+        },
+        "butter": {
+          "price_range": "255-765",
+          "requires": "milk",
+          "quality_dependent": true
+        },
+        "cheese": {
+          "price_range": "510-1530",
+          "requires": "milk",
+          "quality_dependent": true,
+          "aging_required": true
+        },
+        "yogurt": {
+          "price_range": "340-1020",
+          "requires": "milk",
+          "quality_dependent": true
+        }
+      },
+      "perfumes": {
+        "lavender_perfume": {
+          "base_price": 390,
+          "requires": "lavender"
+        },
+        "rose_perfume": {
+          "base_price": 780,
+          "requires": "rose"
+        },
+        "premium_perfume": {
+          "base_price": 1710,
+          "requires": "rare_flowers"
+        }
+      },
+      "beverages": {
+        "coffee": {
+          "base_price": 200,
+          "requires": "coffee_beans"
+        },
+        "tea": {
+          "base_price": 150,
+          "requires": "tea_leaves"
+        },
+        "juice": {
+          "price_range": "120-400",
+          "depends_on_fruit": true
+        }
+      }
+    },
+    "tree_fruits": {
+      "apple": {
+        "prices": {
+          "decent": 100,
+          "good": 150,
+          "perfect": 200,
+          "shining": 300
+        },
+        "season": "fall",
+        "growth_years": 2
+      },
+      "cherry": {
+        "prices": {
+          "decent": 120,
+          "good": 180,
+          "perfect": 240,
+          "shining": 360
+        },
+        "season": "spring",
+        "growth_years": 2
+      },
+      "orange": {
+        "prices": {
+          "decent": 110,
+          "good": 165,
+          "perfect": 220,
+          "shining": 330
+        },
+        "season": "winter",
+        "growth_years": 2
+      },
+      "chestnut": {
+        "prices": {
+          "decent": 80,
+          "good": 120,
+          "perfect": 160,
+          "shining": 240
+        },
+        "season": "fall",
+        "growth_years": 3
+      },
+      "coffee_beans": {
+        "prices": {
+          "decent": 90,
+          "good": 135,
+          "perfect": 180,
+          "shining": 270
+        },
+        "season": "summer",
+        "growth_years": 3
+      },
+      "olive": {
+        "prices": {
+          "decent": 70,
+          "good": 105,
+          "perfect": 140,
+          "shining": 210
+        },
+        "season": "fall",
+        "growth_years": 3
+      }
+    },
+    "foraged_items": {
+      "wild_herbs": {
+        "medicinal_herb": {
+          "base_price": 40,
+          "seasons": ["spring", "summer"],
+          "energy_recovery": "medium"
+        },
+        "antidote_herb": {
+          "base_price": 60,
+          "seasons": ["spring", "fall"],
+          "status_cure": "poison"
+        }
+      },
+      "mushrooms": {
+        "mushroom": {
+          "base_price": 70,
+          "seasons": ["fall"],
+          "location": "forest"
+        },
+        "poison_mushroom": {
+          "base_price": 30,
+          "seasons": ["fall"],
+          "location": "forest",
+          "warning": "causes_poison"
+        }
+      },
+      "berries": {
+        "wild_berry": {
+          "base_price": 50,
+          "seasons": ["summer", "fall"],
+          "energy_recovery": "low"
+        }
+      }
+    }
+  }
+}
