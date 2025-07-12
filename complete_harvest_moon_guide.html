@@ -896,9 +896,7 @@
                 </div>
             </div>
             
-            <p style="text-align: center; color: #a0aec0; margin: 40px 20px;">
-                Based on IGN's comprehensive guide • Quality levels affect final prices
-            </p>
+
         </div>
 
         <!-- Fish Section - preserving original functionality -->
@@ -949,11 +947,22 @@
                 <div class="header-overlay"></div>
                 <button class="back-button" onclick="showSection('main')">← Categories</button>
                 <div class="header-content">
-                    <h1>🌱 Crops Price List</h1>
+                    <h1>Crops Price List</h1>
                     <p>Harvest Moon: Animal Parade</p>
                 </div>
             </div>
             <div id="cropsTable"></div>
+            
+            <!-- Cart Container -->
+            <div class="cart-container">
+                <div class="cart-total-preview" id="cartTotalPreview" style="display: none;">
+                    0 G
+                </div>
+                <button class="cart-button" onclick="openCart()">
+                    🛒
+                    <span class="cart-count" id="cartCount" style="display: none;">0</span>
+                </button>
+            </div>
         </div>
 
         <div id="mining-section" class="section">
@@ -961,11 +970,22 @@
                 <div class="header-overlay"></div>
                 <button class="back-button" onclick="showSection('main')">← Categories</button>
                 <div class="header-content">
-                    <h1>⛏️ Mining Items</h1>
+                    <h1>Mining Items</h1>
                     <p>Harvest Moon: Animal Parade</p>
                 </div>
             </div>
             <div id="miningTable"></div>
+            
+            <!-- Cart Container -->
+            <div class="cart-container">
+                <div class="cart-total-preview" id="cartTotalPreview" style="display: none;">
+                    0 G
+                </div>
+                <button class="cart-button" onclick="openCart()">
+                    🛒
+                    <span class="cart-count" id="cartCount" style="display: none;">0</span>
+                </button>
+            </div>
         </div>
 
         <div id="animals-section" class="section">
@@ -973,11 +993,22 @@
                 <div class="header-overlay"></div>
                 <button class="back-button" onclick="showSection('main')">← Categories</button>
                 <div class="header-content">
-                    <h1>🐄 Animal Produce</h1>
+                    <h1>Animal Produce</h1>
                     <p>Harvest Moon: Animal Parade</p>
                 </div>
             </div>
-            <div id="animalsTable"></div>
+            <div id="animalTable"></div>
+            
+            <!-- Cart Container -->
+            <div class="cart-container">
+                <div class="cart-total-preview" id="cartTotalPreview" style="display: none;">
+                    0 G
+                </div>
+                <button class="cart-button" onclick="openCart()">
+                    🛒
+                    <span class="cart-count" id="cartCount" style="display: none;">0</span>
+                </button>
+            </div>
         </div>
 
         <div id="artisan-section" class="section">
@@ -985,11 +1016,22 @@
                 <div class="header-overlay"></div>
                 <button class="back-button" onclick="showSection('main')">← Categories</button>
                 <div class="header-content">
-                    <h1>🍳 Artisan Goods</h1>
+                    <h1>Artisan Goods</h1>
                     <p>Harvest Moon: Animal Parade</p>
                 </div>
             </div>
             <div id="artisanTable"></div>
+            
+            <!-- Cart Container -->
+            <div class="cart-container">
+                <div class="cart-total-preview" id="cartTotalPreview" style="display: none;">
+                    0 G
+                </div>
+                <button class="cart-button" onclick="openCart()">
+                    🛒
+                    <span class="cart-count" id="cartCount" style="display: none;">0</span>
+                </button>
+            </div>
         </div>
 
         <div id="forage-section" class="section">
@@ -997,11 +1039,22 @@
                 <div class="header-overlay"></div>
                 <button class="back-button" onclick="showSection('main')">← Categories</button>
                 <div class="header-content">
-                    <h1>🍄 Forage Items</h1>
+                    <h1>Forage Items</h1>
                     <p>Harvest Moon: Animal Parade</p>
                 </div>
             </div>
             <div id="forageTable"></div>
+            
+            <!-- Cart Container -->
+            <div class="cart-container">
+                <div class="cart-total-preview" id="cartTotalPreview" style="display: none;">
+                    0 G
+                </div>
+                <button class="cart-button" onclick="openCart()">
+                    🛒
+                    <span class="cart-count" id="cartCount" style="display: none;">0</span>
+                </button>
+            </div>
         </div>
 
         <div id="trees-section" class="section">
@@ -1009,22 +1062,22 @@
                 <div class="header-overlay"></div>
                 <button class="back-button" onclick="showSection('main')">← Categories</button>
                 <div class="header-content">
-                    <h1>🌳 Tree Fruits</h1>
+                    <h1>Tree Fruits</h1>
                     <p>Harvest Moon: Animal Parade</p>
                 </div>
             </div>
             <div id="treeTable"></div>
-        </div>
-
-        <!-- Cart Container -->
-        <div class="cart-container">
-            <div class="cart-total-preview" id="cartTotalPreview" style="display: none;">
-                0 G
+            
+            <!-- Cart Container -->
+            <div class="cart-container">
+                <div class="cart-total-preview" id="cartTotalPreview" style="display: none;">
+                    0 G
+                </div>
+                <button class="cart-button" onclick="openCart()">
+                    🛒
+                    <span class="cart-count" id="cartCount" style="display: none;">0</span>
+                </button>
             </div>
-            <button class="cart-button" onclick="openCart()">
-                🛒
-                <span class="cart-count" id="cartCount" style="display: none;">0</span>
-            </button>
         </div>
 
         <!-- Cart Modal -->
@@ -1464,29 +1517,35 @@
         }
 
         function updateCartUI() {
-            const cartCount = document.getElementById('cartCount');
+            // Get cart elements from the current active section
+            const activeSection = document.querySelector('.section.active');
+            const cartCount = activeSection.querySelector('#cartCount');
+            const cartTotalPreview = activeSection.querySelector('#cartTotalPreview');
             const cartItems = document.getElementById('cartItems');
             const cartFooter = document.getElementById('cartFooter');
             const cartTotal = document.getElementById('cartTotal');
-            const cartTotalPreview = document.getElementById('cartTotalPreview');
 
             const totalCount = getTotalCount();
             const totalValue = getTotalValue();
 
             // Update total preview
-            if (totalValue > 0) {
-                cartTotalPreview.textContent = `${totalValue} G`;
-                cartTotalPreview.style.display = 'block';
-            } else {
-                cartTotalPreview.style.display = 'none';
+            if (cartTotalPreview) {
+                if (totalValue > 0) {
+                    cartTotalPreview.textContent = `${totalValue} G`;
+                    cartTotalPreview.style.display = 'block';
+                } else {
+                    cartTotalPreview.style.display = 'none';
+                }
             }
 
             // Update cart count badge
-            if (totalCount > 0) {
-                cartCount.textContent = totalCount;
-                cartCount.style.display = 'flex';
-            } else {
-                cartCount.style.display = 'none';
+            if (cartCount) {
+                if (totalCount > 0) {
+                    cartCount.textContent = totalCount;
+                    cartCount.style.display = 'flex';
+                } else {
+                    cartCount.style.display = 'none';
+                }
             }
 
             // Update cart items
@@ -1529,22 +1588,26 @@
         }
 
         function showPriceAnimation(price) {
-            const totalPreview = document.getElementById('cartTotalPreview');
+            // Get cart total preview from the current active section
+            const activeSection = document.querySelector('.section.active');
+            const totalPreview = activeSection.querySelector('#cartTotalPreview');
             
-            // Create animation element
-            const pricePopup = document.createElement('div');
-            pricePopup.className = 'price-add-animation';
-            pricePopup.textContent = `+${price}`;
-            
-            // Add to total preview
-            totalPreview.appendChild(pricePopup);
-            
-            // Remove after animation
-            setTimeout(() => {
-                if (pricePopup.parentNode) {
-                    pricePopup.parentNode.removeChild(pricePopup);
-                }
-            }, 1000);
+            if (totalPreview) {
+                // Create animation element
+                const pricePopup = document.createElement('div');
+                pricePopup.className = 'price-add-animation';
+                pricePopup.textContent = `+${price}`;
+                
+                // Add to total preview
+                totalPreview.appendChild(pricePopup);
+                
+                // Remove after animation
+                setTimeout(() => {
+                    if (pricePopup.parentNode) {
+                        pricePopup.parentNode.removeChild(pricePopup);
+                    }
+                }, 1000);
+            }
         }
 
         function openCart() {
