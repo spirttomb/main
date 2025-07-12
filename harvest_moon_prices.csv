@@ -1,0 +1,163 @@
+Category,Subcategory,Item,Quality,Price,Additional_Info,Season,Location,Growth_Days,Regrows
+Fish,Basic,Small Fish,Base,50,Grilled: 70G,All Seasons,Pond,,
+Fish,Basic,Medium Fish,Base,80,Grilled: 110G,All Seasons,River,,
+Fish,Basic,Large Fish,Base,120,Grilled: 160G,All Seasons,River,,
+Fish,Ocean,Sea Bream,Base,150,Grilled: 200G,Spring/Summer,Ocean,,
+Fish,Ocean,Tuna,Base,800,Grilled: 1050G,Summer/Fall,Ocean,,
+Fish,River,Salmon,Base,200,Grilled: 260G,Fall,River,,
+Fish,River,Rainbow Trout,Base,180,Grilled: 235G,Spring/Fall,River,,
+Crops,Spring,Turnip,Decent,170,,Spring,,4,No
+Crops,Spring,Turnip,Good,204,,Spring,,4,No
+Crops,Spring,Turnip,Perfect,255,,Spring,,4,No
+Crops,Spring,Turnip,Shining,340,,Spring,,4,No
+Crops,Spring,Potato,Decent,190,,Spring,,7,No
+Crops,Spring,Potato,Good,228,,Spring,,7,No
+Crops,Spring,Potato,Perfect,285,,Spring,,7,No
+Crops,Spring,Potato,Shining,380,,Spring,,7,No
+Crops,Spring,Strawberry,Decent,180,,Spring,,9,Yes (3 days)
+Crops,Spring,Strawberry,Good,216,,Spring,,9,Yes (3 days)
+Crops,Spring,Strawberry,Perfect,270,,Spring,,9,Yes (3 days)
+Crops,Spring,Strawberry,Shining,410,,Spring,,9,Yes (3 days)
+Crops,Spring,Cabbage,Decent,280,,Spring,,14,No
+Crops,Spring,Cabbage,Good,336,,Spring,,14,No
+Crops,Spring,Cabbage,Perfect,420,,Spring,,14,No
+Crops,Spring,Cabbage,Shining,560,,Spring,,14,No
+Crops,Summer,Corn,Decent,160,,Summer,,14,Yes (4 days)
+Crops,Summer,Corn,Good,192,,Summer,,14,Yes (4 days)
+Crops,Summer,Corn,Perfect,240,,Summer,,14,Yes (4 days)
+Crops,Summer,Corn,Shining,310,,Summer,,14,Yes (4 days)
+Crops,Summer,Tomato,Decent,120,,Summer,,9,Yes (3 days)
+Crops,Summer,Tomato,Good,144,,Summer,,9,Yes (3 days)
+Crops,Summer,Tomato,Perfect,180,,Summer,,9,Yes (3 days)
+Crops,Summer,Tomato,Shining,240,,Summer,,9,Yes (3 days)
+Crops,Summer,Onion,Decent,150,,Summer,,7,No
+Crops,Summer,Onion,Good,180,,Summer,,7,No
+Crops,Summer,Onion,Perfect,225,,Summer,,7,No
+Crops,Summer,Onion,Shining,300,,Summer,,7,No
+Crops,Summer,Pineapple,Decent,500,,Summer,,20,No
+Crops,Summer,Pineapple,Good,600,,Summer,,20,No
+Crops,Summer,Pineapple,Perfect,750,,Summer,,20,No
+Crops,Summer,Pineapple,Shining,1000,,Summer,,20,No
+Crops,Fall,Eggplant,Decent,130,,Fall,,9,Yes (3 days)
+Crops,Fall,Eggplant,Good,156,,Fall,,9,Yes (3 days)
+Crops,Fall,Eggplant,Perfect,195,,Fall,,9,Yes (3 days)
+Crops,Fall,Eggplant,Shining,260,,Fall,,9,Yes (3 days)
+Crops,Fall,Carrot,Decent,160,,Fall,,7,No
+Crops,Fall,Carrot,Good,192,,Fall,,7,No
+Crops,Fall,Carrot,Perfect,240,,Fall,,7,No
+Crops,Fall,Carrot,Shining,320,,Fall,,7,No
+Crops,Fall,Sweet Potato,Decent,140,,Fall,,5,No
+Crops,Fall,Sweet Potato,Good,168,,Fall,,5,No
+Crops,Fall,Sweet Potato,Perfect,210,,Fall,,5,No
+Crops,Fall,Sweet Potato,Shining,280,,Fall,,5,No
+Crops,Fall,Rice,Decent,210,Requires Paddy,Fall,,10,No
+Crops,Fall,Rice,Good,252,Requires Paddy,Fall,,10,No
+Crops,Fall,Rice,Perfect,315,Requires Paddy,Fall,,10,No
+Crops,Fall,Rice,Shining,400,Requires Paddy,Fall,,10,No
+Animal Products,Eggs,Chicken Egg,Decent,50,Daily Production,,,
+Animal Products,Eggs,Chicken Egg,Good,75,Daily Production,,,
+Animal Products,Eggs,Chicken Egg,Perfect,100,Daily Production,,,
+Animal Products,Eggs,Chicken Egg,Shining,150,Daily Production,,,
+Animal Products,Eggs,Duck Egg,Decent,80,Daily Production,,,
+Animal Products,Eggs,Duck Egg,Good,120,Daily Production,,,
+Animal Products,Eggs,Duck Egg,Perfect,160,Daily Production,,,
+Animal Products,Eggs,Duck Egg,Shining,240,Daily Production,,,
+Animal Products,Eggs,Ostrich Egg,Decent,350,Every 3 Days,,,
+Animal Products,Eggs,Ostrich Egg,Good,525,Every 3 Days,,,
+Animal Products,Eggs,Ostrich Egg,Perfect,700,Every 3 Days,,,
+Animal Products,Eggs,Ostrich Egg,Shining,1050,Every 3 Days,,,
+Animal Products,Milk,Cow Milk,Decent,170,Daily Production,,,
+Animal Products,Milk,Cow Milk,Good,255,Daily Production,,,
+Animal Products,Milk,Cow Milk,Perfect,340,Daily Production,,,
+Animal Products,Milk,Cow Milk,Shining,510,Daily Production,,,
+Animal Products,Milk,Goat Milk,Decent,140,Daily Production,,,
+Animal Products,Milk,Goat Milk,Good,210,Daily Production,,,
+Animal Products,Milk,Goat Milk,Perfect,280,Daily Production,,,
+Animal Products,Milk,Goat Milk,Shining,480,Daily Production,,,
+Animal Products,Milk,Sheep Milk,Decent,120,Daily Production,,,
+Animal Products,Milk,Sheep Milk,Good,180,Daily Production,,,
+Animal Products,Milk,Sheep Milk,Perfect,240,Daily Production,,,
+Animal Products,Milk,Sheep Milk,Shining,460,Daily Production,,,
+Animal Products,Other,Wool,Decent,620,Weekly,,,
+Animal Products,Other,Wool,Good,930,Weekly,,,
+Animal Products,Other,Wool,Perfect,1240,Weekly,,,
+Animal Products,Other,Wool,Shining,1820,Weekly,,,
+Animal Products,Other,Honey,Decent,50,Every 3 Days,,,
+Animal Products,Other,Honey,Good,100,Every 3 Days,,,
+Animal Products,Other,Honey,Perfect,150,Every 3 Days,,,
+Animal Products,Other,Honey,Shining,250,Every 3 Days,,,
+Animal Products,Other,Silk,Decent,660,Weekly,,,
+Animal Products,Other,Silk,Good,990,Weekly,,,
+Animal Products,Other,Silk,Perfect,1320,Weekly,,,
+Animal Products,Other,Silk,Shining,1980,Weekly,,,
+Mining,Ores,Junk Ore,Base,10,Common,,,Floors 1-19
+Mining,Ores,Iron Ore,Base,20,Common,,,Floors 20-39
+Mining,Ores,Copper Ore,Base,30,Common,,,Floors 40-59
+Mining,Ores,Silver Ore,Base,50,Uncommon,,,Floors 60-79
+Mining,Ores,Gold Ore,Base,80,Uncommon,,,Floors 80-99
+Mining,Ores,Rare Ore,Base,150,Rare,,,Floors 100+
+Mining,Refined,Iron,Base,50,From Iron Ore,,,,
+Mining,Refined,Copper,Base,70,From Copper Ore,,,,
+Mining,Refined,Silver,Base,100,From Silver Ore,,,,
+Mining,Refined,Gold,Base,150,From Gold Ore,,,,
+Mining,Refined,Rare Metal,Base,240,From Rare Ore,,,,
+Mining,Gems,Diamond,Base,1330,Very Rare,,,,
+Mining,Gems,Ruby,Base,830,Rare,,,,
+Mining,Gems,Emerald,Base,690,Rare,,,,
+Mining,Gems,Sapphire,Base,620,Rare,,,,
+Mining,Gems,Topaz,Base,340,Uncommon,,,,
+Mining,Gems,Amethyst,Base,280,Uncommon,,,,
+Mining,Wonderfuls,Red Wonderful,Base,30,Refines to Ruby,,,,
+Mining,Wonderfuls,Blue Wonderful,Base,30,Refines to Sapphire,,,,
+Mining,Wonderfuls,Green Wonderful,Base,30,Refines to Emerald,,,,
+Mining,Wonderfuls,Yellow Wonderful,Base,30,Refines to Topaz,,,,
+Mining,Wonderfuls,Purple Wonderful,Base,30,Refines to Amethyst,,,,
+Mining,Wonderfuls,White Wonderful,Base,30,Refines to Diamond,,,,
+Mining,Special,Small Pearl,Base,90,,,,,
+Mining,Special,Medium Pearl,Base,120,,,,,
+Mining,Special,Large Pearl,Base,150,,,,,
+Mining,Special,Rock Salt,Base,50,,,,,
+Artisan,Cooked,Pizza,Base,792,Oven - High Energy,,,,
+Artisan,Cooked,Sushi,Base,290-1833,Cutting Board - Variable,,,,
+Artisan,Cooked,Cake,Base,680,Oven - High Energy,,,,
+Artisan,Cooked,Bread,Base,180,Oven - Medium Energy,,,,
+Artisan,Cooked,Curry,Base,420,Pot - High Energy,,,,
+Artisan,Processed,Mayonnaise,Range,75-225,From Eggs - Quality Dependent,,,,
+Artisan,Processed,Butter,Range,255-765,From Milk - Quality Dependent,,,,
+Artisan,Processed,Cheese,Range,510-1530,From Milk - Aging Required,,,,
+Artisan,Processed,Yogurt,Range,340-1020,From Milk - Quality Dependent,,,,
+Artisan,Perfumes,Lavender Perfume,Base,390,From Lavender,,,,
+Artisan,Perfumes,Rose Perfume,Base,780,From Rose,,,,
+Artisan,Perfumes,Premium Perfume,Base,1710,From Rare Flowers,,,,
+Artisan,Beverages,Coffee,Base,200,From Coffee Beans,,,,
+Artisan,Beverages,Tea,Base,150,From Tea Leaves,,,,
+Artisan,Beverages,Juice,Range,120-400,Depends on Fruit,,,,
+Tree Fruits,Spring,Cherry,Decent,120,2 Years to Mature,Spring,,2 Years,
+Tree Fruits,Spring,Cherry,Good,180,2 Years to Mature,Spring,,2 Years,
+Tree Fruits,Spring,Cherry,Perfect,240,2 Years to Mature,Spring,,2 Years,
+Tree Fruits,Spring,Cherry,Shining,360,2 Years to Mature,Spring,,2 Years,
+Tree Fruits,Summer,Coffee Beans,Decent,90,3 Years to Mature,Summer,,3 Years,
+Tree Fruits,Summer,Coffee Beans,Good,135,3 Years to Mature,Summer,,3 Years,
+Tree Fruits,Summer,Coffee Beans,Perfect,180,3 Years to Mature,Summer,,3 Years,
+Tree Fruits,Summer,Coffee Beans,Shining,270,3 Years to Mature,Summer,,3 Years,
+Tree Fruits,Fall,Apple,Decent,100,2 Years to Mature,Fall,,2 Years,
+Tree Fruits,Fall,Apple,Good,150,2 Years to Mature,Fall,,2 Years,
+Tree Fruits,Fall,Apple,Perfect,200,2 Years to Mature,Fall,,2 Years,
+Tree Fruits,Fall,Apple,Shining,300,2 Years to Mature,Fall,,2 Years,
+Tree Fruits,Fall,Chestnut,Decent,80,3 Years to Mature,Fall,,3 Years,
+Tree Fruits,Fall,Chestnut,Good,120,3 Years to Mature,Fall,,3 Years,
+Tree Fruits,Fall,Chestnut,Perfect,160,3 Years to Mature,Fall,,3 Years,
+Tree Fruits,Fall,Chestnut,Shining,240,3 Years to Mature,Fall,,3 Years,
+Tree Fruits,Fall,Olive,Decent,70,3 Years to Mature,Fall,,3 Years,
+Tree Fruits,Fall,Olive,Good,105,3 Years to Mature,Fall,,3 Years,
+Tree Fruits,Fall,Olive,Perfect,140,3 Years to Mature,Fall,,3 Years,
+Tree Fruits,Fall,Olive,Shining,210,3 Years to Mature,Fall,,3 Years,
+Tree Fruits,Winter,Orange,Decent,110,2 Years to Mature,Winter,,2 Years,
+Tree Fruits,Winter,Orange,Good,165,2 Years to Mature,Winter,,2 Years,
+Tree Fruits,Winter,Orange,Perfect,220,2 Years to Mature,Winter,,2 Years,
+Tree Fruits,Winter,Orange,Shining,330,2 Years to Mature,Winter,,2 Years,
+Foraged,Herbs,Medicinal Herb,Base,40,Medium Energy Recovery,Spring/Summer,Forest,,
+Foraged,Herbs,Antidote Herb,Base,60,Cures Poison,Spring/Fall,Forest,,
+Foraged,Mushrooms,Mushroom,Base,70,,Fall,Forest,,
+Foraged,Mushrooms,Poison Mushroom,Base,30,Causes Poison,Fall,Forest,,
+Foraged,Berries,Wild Berry,Base,50,Low Energy Recovery,Summer/Fall,Forest,,
