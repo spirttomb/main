@@ -182,15 +182,15 @@
         }
 
         .cart-item {
-            display: flex;
+            display: grid;
+            grid-template-columns: auto 1fr auto auto;
             align-items: center;
             padding: 15px;
             background: #2a2a2a;
             border-radius: 10px;
             margin-bottom: 10px;
             border: 1px solid #444;
-            position: relative;
-            gap: 20px;
+            gap: 15px;
         }
 
         .cart-item-image {
@@ -219,9 +219,8 @@
         .cart-item-controls {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 10px;
             flex-wrap: wrap;
-            margin-left: auto;
         }
 
         .cart-item-totals {
@@ -280,9 +279,6 @@
             border-radius: 6px;
             cursor: pointer;
             font-size: 12px;
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
         }
 
         .cart-footer {
@@ -768,6 +764,25 @@
             box-shadow: 0 4px 15px rgba(104, 211, 145, 0.3);
         }
         
+        .back-nav-btn {
+            padding: 8px 12px;
+            background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+            color: #e0e0e0;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+        }
+        
+        .back-nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+        
         .season-nav-btn.spring { color: #a7f3d0; }
         .season-nav-btn.summer { color: #fed7aa; }
         .season-nav-btn.fall { color: #fbbf24; }
@@ -862,43 +877,36 @@
                 <div class="category-button" onclick="showSection('fish')">
                     <div class="category-icon">🐟</div>
                     <div>Fish</div>
-                    <div class="category-description">47+ varieties with locations & seasons</div>
                 </div>
                 
                 <div class="category-button" onclick="showSection('crops')">
                     <div class="category-icon">🌱</div>
                     <div>Crops</div>
-                    <div class="category-description">Seasonal crops with quality levels</div>
                 </div>
                 
                 <div class="category-button" onclick="showSection('mining')">
                     <div class="category-icon">⛏️</div>
                     <div>Mining</div>
-                    <div class="category-description">Ores, gems, and refined materials</div>
                 </div>
                 
                 <div class="category-button" onclick="showSection('animals')">
                     <div class="category-icon">🐄</div>
                     <div>Animal Produce</div>
-                    <div class="category-description">Eggs, milk, wool, and honey</div>
                 </div>
                 
                 <div class="category-button" onclick="showSection('artisan')">
                     <div class="category-icon">🍳</div>
                     <div>Artisan Goods</div>
-                    <div class="category-description">Cooked foods and processed items</div>
                 </div>
                 
                 <div class="category-button" onclick="showSection('forage')">
                     <div class="category-icon">🍄</div>
                     <div>Forage Items</div>
-                    <div class="category-description">Wild herbs, berries, and mushrooms</div>
                 </div>
                 
                 <div class="category-button" onclick="showSection('trees')">
                     <div class="category-icon">🌳</div>
                     <div>Tree Fruits</div>
-                    <div class="category-description">Seasonal fruits from mature trees</div>
                 </div>
             </div>
             
@@ -928,6 +936,7 @@
             <div id="fishTable"></div>
             
             <div class="floating-nav">
+                <button class="back-nav-btn" onclick="showSection('main')">←</button>
                 <button class="sort-btn active" onclick="sortByPrice('asc')">💰 Price: Low to High</button>
                 <button class="sort-btn" onclick="sortByPrice('desc')">💰 Price: High to Low</button>
                 <button class="season-nav-btn spring" onclick="scrollToSeason('Spring')">🌸 Spring</button>
@@ -959,6 +968,12 @@
             </div>
             <div id="cropsTable"></div>
             
+            <div class="floating-nav">
+                <button class="back-nav-btn" onclick="showSection('main')">←</button>
+                <button class="sort-btn active" onclick="sortCropsByPrice('asc')">💰 Price: Low to High</button>
+                <button class="sort-btn" onclick="sortCropsByPrice('desc')">💰 Price: High to Low</button>
+            </div>
+            
             <!-- Cart Container -->
             <div class="cart-container">
                 <div class="cart-total-preview" id="cartTotalPreview" style="display: none;">
@@ -981,6 +996,12 @@
                 </div>
             </div>
             <div id="miningTable"></div>
+            
+            <div class="floating-nav">
+                <button class="back-nav-btn" onclick="showSection('main')">←</button>
+                <button class="sort-btn active" onclick="sortMiningByPrice('asc')">💰 Price: Low to High</button>
+                <button class="sort-btn" onclick="sortMiningByPrice('desc')">💰 Price: High to Low</button>
+            </div>
             
             <!-- Cart Container -->
             <div class="cart-container">
@@ -1005,6 +1026,12 @@
             </div>
             <div id="animalTable"></div>
             
+            <div class="floating-nav">
+                <button class="back-nav-btn" onclick="showSection('main')">←</button>
+                <button class="sort-btn active" onclick="sortAnimalsByPrice('asc')">💰 Price: Low to High</button>
+                <button class="sort-btn" onclick="sortAnimalsByPrice('desc')">💰 Price: High to Low</button>
+            </div>
+            
             <!-- Cart Container -->
             <div class="cart-container">
                 <div class="cart-total-preview" id="cartTotalPreview" style="display: none;">
@@ -1027,6 +1054,12 @@
                 </div>
             </div>
             <div id="artisanTable"></div>
+            
+            <div class="floating-nav">
+                <button class="back-nav-btn" onclick="showSection('main')">←</button>
+                <button class="sort-btn active" onclick="sortArtisanByPrice('asc')">💰 Price: Low to High</button>
+                <button class="sort-btn" onclick="sortArtisanByPrice('desc')">💰 Price: High to Low</button>
+            </div>
             
             <!-- Cart Container -->
             <div class="cart-container">
@@ -1051,6 +1084,12 @@
             </div>
             <div id="forageTable"></div>
             
+            <div class="floating-nav">
+                <button class="back-nav-btn" onclick="showSection('main')">←</button>
+                <button class="sort-btn active" onclick="sortForageByPrice('asc')">💰 Price: Low to High</button>
+                <button class="sort-btn" onclick="sortForageByPrice('desc')">💰 Price: High to Low</button>
+            </div>
+            
             <!-- Cart Container -->
             <div class="cart-container">
                 <div class="cart-total-preview" id="cartTotalPreview" style="display: none;">
@@ -1073,6 +1112,12 @@
                 </div>
             </div>
             <div id="treeTable"></div>
+            
+            <div class="floating-nav">
+                <button class="back-nav-btn" onclick="showSection('main')">←</button>
+                <button class="sort-btn active" onclick="sortTreesByPrice('asc')">💰 Price: Low to High</button>
+                <button class="sort-btn" onclick="sortTreesByPrice('desc')">💰 Price: High to Low</button>
+            </div>
             
             <!-- Cart Container -->
             <div class="cart-container">
@@ -1373,6 +1418,119 @@
             event.target.classList.add('active');
             renderTable();
         }
+        
+        function sortCropsByPrice(direction) {
+            const buttons = document.querySelectorAll('.sort-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Sort crops data by base price (decent quality)
+            Object.keys(cropsData).forEach(season => {
+                if (cropsData[season]) {
+                    if (direction === 'asc') {
+                        cropsData[season].sort((a, b) => a.prices.decent - b.prices.decent);
+                    } else {
+                        cropsData[season].sort((a, b) => b.prices.decent - a.prices.decent);
+                    }
+                }
+            });
+            
+            renderCropsTable();
+        }
+        
+        function sortMiningByPrice(direction) {
+            const buttons = document.querySelectorAll('.sort-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            Object.keys(miningData).forEach(category => {
+                if (miningData[category]) {
+                    if (direction === 'asc') {
+                        miningData[category].sort((a, b) => a.price - b.price);
+                    } else {
+                        miningData[category].sort((a, b) => b.price - a.price);
+                    }
+                }
+            });
+            
+            renderMiningTable();
+        }
+        
+        function sortAnimalsByPrice(direction) {
+            const buttons = document.querySelectorAll('.sort-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            Object.keys(animalProductsData).forEach(category => {
+                if (animalProductsData[category]) {
+                    if (direction === 'asc') {
+                        animalProductsData[category].sort((a, b) => a.prices.decent - b.prices.decent);
+                    } else {
+                        animalProductsData[category].sort((a, b) => b.prices.decent - a.prices.decent);
+                    }
+                }
+            });
+            
+            renderAnimalProductsTable();
+        }
+        
+        function sortArtisanByPrice(direction) {
+            const buttons = document.querySelectorAll('.sort-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            Object.keys(artisanData).forEach(category => {
+                if (artisanData[category]) {
+                    if (direction === 'asc') {
+                        artisanData[category].sort((a, b) => {
+                            const priceA = typeof a.price === 'number' ? a.price : 0;
+                            const priceB = typeof b.price === 'number' ? b.price : 0;
+                            return priceA - priceB;
+                        });
+                    } else {
+                        artisanData[category].sort((a, b) => {
+                            const priceA = typeof a.price === 'number' ? a.price : 0;
+                            const priceB = typeof b.price === 'number' ? b.price : 0;
+                            return priceB - priceA;
+                        });
+                    }
+                }
+            });
+            
+            renderArtisanTable();
+        }
+        
+        function sortForageByPrice(direction) {
+            const buttons = document.querySelectorAll('.sort-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            Object.keys(foragedData).forEach(category => {
+                if (foragedData[category]) {
+                    if (direction === 'asc') {
+                        foragedData[category].sort((a, b) => a.price - b.price);
+                    } else {
+                        foragedData[category].sort((a, b) => b.price - a.price);
+                    }
+                }
+            });
+            
+            renderForagedTable();
+        }
+        
+        function sortTreesByPrice(direction) {
+            const buttons = document.querySelectorAll('.sort-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            if (direction === 'asc') {
+                treeFruitsData.sort((a, b) => a.prices.decent - b.prices.decent);
+            } else {
+                treeFruitsData.sort((a, b) => b.prices.decent - a.prices.decent);
+            }
+            
+            renderTreeFruitsTable();
+        }
 
         function renderTable() {
             const tableContainer = document.getElementById('fishTable');
@@ -1581,10 +1739,10 @@
                             <button class="quantity-btn" onclick="updateQuantity('${cartKey}', ${item.quantity - 1})">-</button>
                             <div class="quantity-display">${item.quantity}</div>
                             <button class="quantity-btn" onclick="updateQuantity('${cartKey}', ${item.quantity + 1})">+</button>
-                            <div class="cart-item-totals">
-                                <div class="cart-item-total">${itemTotal} G</div>
-                                <div class="cart-item-unit-price">${item.quantity} × ${item.price}</div>
-                            </div>
+                        </div>
+                        <div class="cart-item-totals">
+                            <div class="cart-item-total">${itemTotal} G</div>
+                            <div class="cart-item-unit-price">${item.quantity} × ${item.price}</div>
                         </div>
                         <button class="remove-btn" onclick="removeFromCart('${cartKey}')">Remove</button>
                     </div>
@@ -1674,14 +1832,22 @@
                     
                     cropsData[season].forEach(crop => {
                         const basePrice = crop.prices.decent; // Use decent quality as base price
-                        html += `<div class="item-card" onclick="addToCart('${crop.name}', ${basePrice}, null, 'crop')">
+                        html += `<div class="item-card">
                             <div class="item-name">${crop.name}</div>
                             <div class="item-price">${basePrice} G (Decent)</div>
                             <div class="quality-grid">
-                                <div class="quality-item"><div class="quality-name">Decent</div><div class="quality-price">${crop.prices.decent} G</div></div>
-                                <div class="quality-item"><div class="quality-name">Good</div><div class="quality-price">${crop.prices.good} G</div></div>
-                                <div class="quality-item"><div class="quality-name">Perfect</div><div class="quality-price">${crop.prices.perfect} G</div></div>
-                                <div class="quality-item"><div class="quality-name">Shining</div><div class="quality-price">${crop.prices.shining} G</div></div>
+                                <div class="quality-item" onclick="addToCart('${crop.name} (Decent)', ${crop.prices.decent}, null, 'crop')">
+                                    <div class="quality-name">Decent</div><div class="quality-price">${crop.prices.decent} G</div>
+                                </div>
+                                <div class="quality-item" onclick="addToCart('${crop.name} (Good)', ${crop.prices.good}, null, 'crop')">
+                                    <div class="quality-name">Good</div><div class="quality-price">${crop.prices.good} G</div>
+                                </div>
+                                <div class="quality-item" onclick="addToCart('${crop.name} (Perfect)', ${crop.prices.perfect}, null, 'crop')">
+                                    <div class="quality-name">Perfect</div><div class="quality-price">${crop.prices.perfect} G</div>
+                                </div>
+                                <div class="quality-item" onclick="addToCart('${crop.name} (Shining)', ${crop.prices.shining}, null, 'crop')">
+                                    <div class="quality-name">Shining</div><div class="quality-price">${crop.prices.shining} G</div>
+                                </div>
                             </div>
                             <div class="item-details">
                                 <strong>Growth:</strong> ${crop.growthDays} days
@@ -1710,14 +1876,22 @@
                     
                     animalProductsData[category].forEach(product => {
                         const basePrice = product.prices.decent;
-                        html += `<div class="item-card" onclick="addToCart('${product.name}', ${basePrice}, null, 'animal')">
+                        html += `<div class="item-card">
                             <div class="item-name">${product.name}</div>
                             <div class="item-price">${basePrice} G (Decent)</div>
                             <div class="quality-grid">
-                                <div class="quality-item"><div class="quality-name">Decent</div><div class="quality-price">${product.prices.decent} G</div></div>
-                                <div class="quality-item"><div class="quality-name">Good</div><div class="quality-price">${product.prices.good} G</div></div>
-                                <div class="quality-item"><div class="quality-name">Perfect</div><div class="quality-price">${product.prices.perfect} G</div></div>
-                                <div class="quality-item"><div class="quality-name">Shining</div><div class="quality-price">${product.prices.shining} G</div></div>
+                                <div class="quality-item" onclick="addToCart('${product.name} (Decent)', ${product.prices.decent}, null, 'animal')">
+                                    <div class="quality-name">Decent</div><div class="quality-price">${product.prices.decent} G</div>
+                                </div>
+                                <div class="quality-item" onclick="addToCart('${product.name} (Good)', ${product.prices.good}, null, 'animal')">
+                                    <div class="quality-name">Good</div><div class="quality-price">${product.prices.good} G</div>
+                                </div>
+                                <div class="quality-item" onclick="addToCart('${product.name} (Perfect)', ${product.prices.perfect}, null, 'animal')">
+                                    <div class="quality-name">Perfect</div><div class="quality-price">${product.prices.perfect} G</div>
+                                </div>
+                                <div class="quality-item" onclick="addToCart('${product.name} (Shining)', ${product.prices.shining}, null, 'animal')">
+                                    <div class="quality-name">Shining</div><div class="quality-price">${product.prices.shining} G</div>
+                                </div>
                             </div>
                             <div class="item-details">
                                 <strong>Frequency:</strong> ${product.frequency}
@@ -1800,14 +1974,22 @@
             
             treeFruitsData.forEach(fruit => {
                 const basePrice = fruit.prices.decent;
-                html += `<div class="item-card" onclick="addToCart('${fruit.name}', ${basePrice}, null, 'tree')">
+                html += `<div class="item-card">
                     <div class="item-name">${fruit.name}</div>
                     <div class="item-price">${basePrice} G (Decent)</div>
                     <div class="quality-grid">
-                        <div class="quality-item"><div class="quality-name">Decent</div><div class="quality-price">${fruit.prices.decent} G</div></div>
-                        <div class="quality-item"><div class="quality-name">Good</div><div class="quality-price">${fruit.prices.good} G</div></div>
-                        <div class="quality-item"><div class="quality-name">Perfect</div><div class="quality-price">${fruit.prices.perfect} G</div></div>
-                        <div class="quality-item"><div class="quality-name">Shining</div><div class="quality-price">${fruit.prices.shining} G</div></div>
+                        <div class="quality-item" onclick="addToCart('${fruit.name} (Decent)', ${fruit.prices.decent}, null, 'tree')">
+                            <div class="quality-name">Decent</div><div class="quality-price">${fruit.prices.decent} G</div>
+                        </div>
+                        <div class="quality-item" onclick="addToCart('${fruit.name} (Good)', ${fruit.prices.good}, null, 'tree')">
+                            <div class="quality-name">Good</div><div class="quality-price">${fruit.prices.good} G</div>
+                        </div>
+                        <div class="quality-item" onclick="addToCart('${fruit.name} (Perfect)', ${fruit.prices.perfect}, null, 'tree')">
+                            <div class="quality-name">Perfect</div><div class="quality-price">${fruit.prices.perfect} G</div>
+                        </div>
+                        <div class="quality-item" onclick="addToCart('${fruit.name} (Shining)', ${fruit.prices.shining}, null, 'tree')">
+                            <div class="quality-name">Shining</div><div class="quality-price">${fruit.prices.shining} G</div>
+                        </div>
                     </div>
                     <div class="item-details">
                         <strong>Season:</strong> ${fruit.season} | <strong>Maturity:</strong> ${fruit.growthYears} years
