@@ -888,6 +888,12 @@
                     <div>Forage Items</div>
                     <div class="category-description">Wild herbs, berries, and mushrooms</div>
                 </div>
+                
+                <div class="category-button" onclick="showSection('trees')">
+                    <div class="category-icon">🌳</div>
+                    <div>Tree Fruits</div>
+                    <div class="category-description">Seasonal fruits from mature trees</div>
+                </div>
             </div>
             
             <p style="text-align: center; color: #a0aec0; margin: 40px 20px;">
@@ -998,6 +1004,18 @@
             <div id="forageTable"></div>
         </div>
 
+        <div id="trees-section" class="section">
+            <div class="header">
+                <div class="header-overlay"></div>
+                <button class="back-button" onclick="showSection('main')">← Categories</button>
+                <div class="header-content">
+                    <h1>🌳 Tree Fruits</h1>
+                    <p>Harvest Moon: Animal Parade</p>
+                </div>
+            </div>
+            <div id="treeTable"></div>
+        </div>
+
         <!-- Cart Container -->
         <div class="cart-container">
             <div class="cart-total-preview" id="cartTotalPreview" style="display: none;">
@@ -1053,26 +1071,148 @@
             {name: "Shark", price: 347, location: "Toucan Island", specificLocation: "south shore, north shore, northeast shore", season: "Any season", weather: "Any weather", time: "5am-9am, 3pm-9pm", exp: 80, spriteId: 37}
         ];
 
-        // Other category data
-        const cropsData = [
-            {name: "Turnip", season: "Spring", growthDays: 4, regrows: false, prices: {decent: 170, good: 204, perfect: 255, shining: 340}},
-            {name: "Strawberry", season: "Spring", growthDays: 8, regrows: true, prices: {decent: 180, good: 216, perfect: 270, shining: 360}},
-            {name: "Corn", season: "Summer", growthDays: 14, regrows: true, prices: {decent: 160, good: 192, perfect: 240, shining: 320}},
-            {name: "Pineapple", season: "Summer", growthDays: 20, regrows: true, prices: {decent: 500, good: 600, perfect: 750, shining: 1000}}
-        ];
 
-        const miningData = [
-            {name: "Diamond", category: "Gems", price: 1330, description: "Most valuable gem"},
-            {name: "Ruby", category: "Gems", price: 830, description: "Red precious stone"},
-            {name: "Gold Ore", category: "Raw Ores", price: 50, description: "Very valuable ore"}
-        ];
 
         // State management
         let currentSection = 'main';
         let currentSortOrder = 'asc';
         let currentSearchTerm = '';
         let filteredFishData = fishData;
-        let cart = JSON.parse(localStorage.getItem('fishCart')) || {};
+        
+        // Cart system - updated for all categories
+        let cart = JSON.parse(localStorage.getItem('harvestMoonCart')) || {};
+        
+        // Comprehensive data from JSON and MD files
+        const cropsData = {
+            spring: [
+                {name: "Turnip", growthDays: 4, prices: {decent: 170, good: 204, perfect: 255, shining: 340}, regrows: false},
+                {name: "Potato", growthDays: 7, prices: {decent: 190, good: 228, perfect: 285, shining: 380}, regrows: false},
+                {name: "Strawberry", growthDays: 9, prices: {decent: 180, good: 216, perfect: 270, shining: 410}, regrows: true, regrowDays: 3},
+                {name: "Cabbage", growthDays: 14, prices: {decent: 280, good: 336, perfect: 420, shining: 560}, regrows: false}
+            ],
+            summer: [
+                {name: "Corn", growthDays: 14, prices: {decent: 160, good: 192, perfect: 240, shining: 310}, regrows: true, regrowDays: 4},
+                {name: "Tomato", growthDays: 9, prices: {decent: 120, good: 144, perfect: 180, shining: 240}, regrows: true, regrowDays: 3},
+                {name: "Onion", growthDays: 7, prices: {decent: 150, good: 180, perfect: 225, shining: 300}, regrows: false},
+                {name: "Pineapple", growthDays: 20, prices: {decent: 500, good: 600, perfect: 750, shining: 1000}, regrows: false}
+            ],
+            fall: [
+                {name: "Eggplant", growthDays: 9, prices: {decent: 130, good: 156, perfect: 195, shining: 260}, regrows: true, regrowDays: 3},
+                {name: "Carrot", growthDays: 7, prices: {decent: 160, good: 192, perfect: 240, shining: 320}, regrows: false},
+                {name: "Sweet Potato", growthDays: 5, prices: {decent: 140, good: 168, perfect: 210, shining: 280}, regrows: false},
+                {name: "Rice", growthDays: 10, prices: {decent: 210, good: 252, perfect: 315, shining: 400}, regrows: false, requiresPaddy: true}
+            ],
+            winter: [
+                {name: "Turnip", growthDays: 4, prices: {decent: 170, good: 204, perfect: 255, shining: 340}, regrows: false}
+            ]
+        };
+        
+        const animalProductsData = {
+            eggs: [
+                {name: "Chicken Egg", prices: {decent: 50, good: 75, perfect: 100, shining: 150}, frequency: "Daily"},
+                {name: "Duck Egg", prices: {decent: 80, good: 120, perfect: 160, shining: 240}, frequency: "Daily"},
+                {name: "Ostrich Egg", prices: {decent: 350, good: 525, perfect: 700, shining: 1050}, frequency: "Every 3 days"}
+            ],
+            milk: [
+                {name: "Cow Milk", prices: {decent: 170, good: 255, perfect: 340, shining: 510}, frequency: "Daily"},
+                {name: "Goat Milk", prices: {decent: 140, good: 210, perfect: 280, shining: 480}, frequency: "Daily"},
+                {name: "Sheep Milk", prices: {decent: 120, good: 180, perfect: 240, shining: 460}, frequency: "Daily"}
+            ],
+            other: [
+                {name: "Wool", prices: {decent: 620, good: 930, perfect: 1240, shining: 1820}, frequency: "Weekly"},
+                {name: "Honey", prices: {decent: 50, good: 100, perfect: 150, shining: 250}, frequency: "Every 3 days"},
+                {name: "Silk", prices: {decent: 660, good: 990, perfect: 1320, shining: 1980}, frequency: "Weekly"}
+            ]
+        };
+        
+        const miningData = {
+            ores: [
+                {name: "Junk Ore", price: 10, rarity: "Common", floors: "1-19"},
+                {name: "Iron Ore", price: 20, rarity: "Common", floors: "20-39"},
+                {name: "Copper Ore", price: 30, rarity: "Common", floors: "40-59"},
+                {name: "Silver Ore", price: 50, rarity: "Uncommon", floors: "60-79"},
+                {name: "Gold Ore", price: 80, rarity: "Uncommon", floors: "80-99"},
+                {name: "Rare Ore", price: 150, rarity: "Rare", floors: "100+"}
+            ],
+            refined: [
+                {name: "Iron", price: 50, requires: "Iron Ore"},
+                {name: "Copper", price: 70, requires: "Copper Ore"},
+                {name: "Silver", price: 100, requires: "Silver Ore"},
+                {name: "Gold", price: 150, requires: "Gold Ore"},
+                {name: "Rare Metal", price: 240, requires: "Rare Ore"}
+            ],
+            gems: [
+                {name: "Diamond", price: 1330, rarity: "Very Rare"},
+                {name: "Ruby", price: 830, rarity: "Rare"},
+                {name: "Emerald", price: 690, rarity: "Rare"},
+                {name: "Sapphire", price: 620, rarity: "Rare"},
+                {name: "Topaz", price: 340, rarity: "Uncommon"},
+                {name: "Amethyst", price: 280, rarity: "Uncommon"}
+            ],
+            wonderfuls: [
+                {name: "Red Wonderful", price: 30, refinedGem: "Ruby"},
+                {name: "Blue Wonderful", price: 30, refinedGem: "Sapphire"},
+                {name: "Green Wonderful", price: 30, refinedGem: "Emerald"},
+                {name: "Yellow Wonderful", price: 30, refinedGem: "Topaz"},
+                {name: "Purple Wonderful", price: 30, refinedGem: "Amethyst"},
+                {name: "White Wonderful", price: 30, refinedGem: "Diamond"}
+            ],
+            special: [
+                {name: "Small Pearl", price: 90},
+                {name: "Medium Pearl", price: 120},
+                {name: "Large Pearl", price: 150},
+                {name: "Rock Salt", price: 50}
+            ]
+        };
+        
+        const artisanData = {
+            cooked: [
+                {name: "Pizza", price: 792, method: "Oven", energy: "High"},
+                {name: "Sushi", price: "290-1833", method: "Cutting Board", energy: "Variable"},
+                {name: "Cake", price: 680, method: "Oven", energy: "High"},
+                {name: "Bread", price: 180, method: "Oven", energy: "Medium"},
+                {name: "Curry", price: 420, method: "Pot", energy: "High"}
+            ],
+            processed: [
+                {name: "Mayonnaise", price: "75-225", requires: "Egg", qualityDependent: true},
+                {name: "Butter", price: "255-765", requires: "Milk", qualityDependent: true},
+                {name: "Cheese", price: "510-1530", requires: "Milk", qualityDependent: true, agingRequired: true},
+                {name: "Yogurt", price: "340-1020", requires: "Milk", qualityDependent: true}
+            ],
+            perfumes: [
+                {name: "Lavender Perfume", price: 390, requires: "Lavender"},
+                {name: "Rose Perfume", price: 780, requires: "Rose"},
+                {name: "Premium Perfume", price: 1710, requires: "Rare Flowers"}
+            ],
+            beverages: [
+                {name: "Coffee", price: 200, requires: "Coffee Beans"},
+                {name: "Tea", price: 150, requires: "Tea Leaves"},
+                {name: "Juice", price: "120-400", requires: "Various Fruits"}
+            ]
+        };
+        
+        const treeFruitsData = [
+            {name: "Apple", season: "Fall", growthYears: 2, prices: {decent: 100, good: 150, perfect: 200, shining: 300}},
+            {name: "Cherry", season: "Spring", growthYears: 2, prices: {decent: 120, good: 180, perfect: 240, shining: 360}},
+            {name: "Orange", season: "Winter", growthYears: 2, prices: {decent: 110, good: 165, perfect: 220, shining: 330}},
+            {name: "Chestnut", season: "Fall", growthYears: 3, prices: {decent: 80, good: 120, perfect: 160, shining: 240}},
+            {name: "Coffee Beans", season: "Summer", growthYears: 3, prices: {decent: 90, good: 135, perfect: 180, shining: 270}},
+            {name: "Olive", season: "Fall", growthYears: 3, prices: {decent: 70, good: 105, perfect: 140, shining: 210}}
+        ];
+        
+        const foragedData = {
+            herbs: [
+                {name: "Medicinal Herb", price: 40, seasons: ["Spring", "Summer"], effect: "Medium Energy"},
+                {name: "Antidote Herb", price: 60, seasons: ["Spring", "Fall"], effect: "Cures Poison"}
+            ],
+            mushrooms: [
+                {name: "Mushroom", price: 70, seasons: ["Fall"], location: "Forest"},
+                {name: "Poison Mushroom", price: 30, seasons: ["Fall"], location: "Forest", warning: "Causes Poison"}
+            ],
+            berries: [
+                {name: "Wild Berry", price: 50, seasons: ["Summer", "Fall"], effect: "Low Energy"}
+            ]
+        };
 
         // Navigation
         function showSection(section) {
@@ -1085,8 +1225,22 @@
                 updateCartUI();
             } else if (section === 'crops') {
                 renderCropsTable();
+                updateCartUI();
+            } else if (section === 'animals') {
+                renderAnimalProductsTable();
+                updateCartUI();
             } else if (section === 'mining') {
                 renderMiningTable();
+                updateCartUI();
+            } else if (section === 'artisan') {
+                renderArtisanTable();
+                updateCartUI();
+            } else if (section === 'trees') {
+                renderTreeFruitsTable();
+                updateCartUI();
+            } else if (section === 'forage') {
+                renderForagedTable();
+                updateCartUI();
             }
             
             window.scrollTo(0, 0);
@@ -1243,25 +1397,58 @@
             tableContainer.innerHTML = html;
         }
 
-        // Cart functions - exactly like your original
-        function addToCart(fishName, fishPrice, fishId) {
-            if (cart[fishName]) {
-                cart[fishName].quantity += 1;
+        // Cart functions - updated for all categories
+        function addToCart(itemName, itemPrice, itemId = null, itemType = 'fish') {
+            const cartKey = `${itemType}_${itemName}`;
+            if (cart[cartKey]) {
+                cart[cartKey].quantity += 1;
             } else {
-                cart[fishName] = {
-                    name: fishName,
-                    price: fishPrice,
+                cart[cartKey] = {
+                    name: itemName,
+                    price: itemPrice,
                     quantity: 1,
-                    spriteId: fishId
+                    type: itemType,
+                    spriteId: itemId
                 };
             }
             saveCart();
             updateCartUI();
-            showPriceAnimation(fishPrice);
+            showPriceAnimation(itemPrice);
+            
+            // Add visual feedback
+            const itemCards = document.querySelectorAll('.fish-card, .item-card');
+            itemCards.forEach(card => {
+                if (card.querySelector('.fish-card-name, .item-name')?.textContent === itemName) {
+                    card.classList.add('added-animation');
+                    setTimeout(() => card.classList.remove('added-animation'), 600);
+                }
+            });
+        }
+
+        function removeFromCart(cartKey) {
+            delete cart[cartKey];
+            saveCart();
+            updateCartUI();
+        }
+
+        function updateQuantity(cartKey, newQuantity) {
+            if (newQuantity <= 0) {
+                removeFromCart(cartKey);
+            } else {
+                cart[cartKey].quantity = newQuantity;
+                saveCart();
+                updateCartUI();
+            }
         }
 
         function saveCart() {
-            localStorage.setItem('fishCart', JSON.stringify(cart));
+            localStorage.setItem('harvestMoonCart', JSON.stringify(cart));
+        }
+
+        function clearCart() {
+            cart = {};
+            saveCart();
+            updateCartUI();
         }
 
         function getTotalValue() {
@@ -1278,11 +1465,15 @@
 
         function updateCartUI() {
             const cartCount = document.getElementById('cartCount');
+            const cartItems = document.getElementById('cartItems');
+            const cartFooter = document.getElementById('cartFooter');
+            const cartTotal = document.getElementById('cartTotal');
             const cartTotalPreview = document.getElementById('cartTotalPreview');
 
             const totalCount = getTotalCount();
             const totalValue = getTotalValue();
 
+            // Update total preview
             if (totalValue > 0) {
                 cartTotalPreview.textContent = `${totalValue} G`;
                 cartTotalPreview.style.display = 'block';
@@ -1290,30 +1481,80 @@
                 cartTotalPreview.style.display = 'none';
             }
 
+            // Update cart count badge
             if (totalCount > 0) {
                 cartCount.textContent = totalCount;
                 cartCount.style.display = 'flex';
             } else {
                 cartCount.style.display = 'none';
             }
+
+            // Update cart items
+            if (totalCount === 0) {
+                cartItems.innerHTML = `
+                    <div class="empty-cart">
+                        <p>No items added yet!</p>
+                        <p>Tap any item card to add it to your cart.</p>
+                    </div>
+                `;
+                cartFooter.style.display = 'none';
+            } else {
+                cartFooter.style.display = 'block';
+                cartTotal.textContent = `${totalValue} G`;
+                
+                cartItems.innerHTML = Object.entries(cart).map(([cartKey, item]) => {
+                    const itemTotal = item.price * item.quantity;
+                    const imageUrl = item.spriteId ? getFishImageUrl(item.spriteId) : '';
+                    return `
+                    <div class="cart-item">
+                        ${imageUrl ? `<img src="${imageUrl}" alt="${item.name}" class="cart-item-image" onerror="this.style.display='none'">` : '<div class="cart-item-image"></div>'}
+                        <div class="cart-item-info">
+                            <div class="cart-item-name">${item.name}</div>
+                            <div class="cart-item-price">${item.price} G each</div>
+                        </div>
+                        <div class="cart-item-controls">
+                            <button class="quantity-btn" onclick="updateQuantity('${cartKey}', ${item.quantity - 1})">-</button>
+                            <div class="quantity-display">${item.quantity}</div>
+                            <button class="quantity-btn" onclick="updateQuantity('${cartKey}', ${item.quantity + 1})">+</button>
+                            <div class="cart-item-totals">
+                                <div class="cart-item-total">${itemTotal} G</div>
+                                <div class="cart-item-unit-price">${item.quantity} × ${item.price}</div>
+                            </div>
+                            <button class="remove-btn" onclick="removeFromCart('${cartKey}')">Remove</button>
+                        </div>
+                    </div>
+                `;
+                }).join('');
+            }
         }
 
         function showPriceAnimation(price) {
             const totalPreview = document.getElementById('cartTotalPreview');
+            
+            // Create animation element
             const pricePopup = document.createElement('div');
-            pricePopup.style.cssText = `
-                position: absolute; top: -10px; right: 50%; transform: translateX(50%);
-                background: #68d391; color: #1a202c; padding: 4px 8px; border-radius: 12px;
-                font-size: 12px; font-weight: bold; pointer-events: none; opacity: 0;
-                animation: pricePopup 1s ease-out;
-            `;
+            pricePopup.className = 'price-add-animation';
             pricePopup.textContent = `+${price}`;
+            
+            // Add to total preview
             totalPreview.appendChild(pricePopup);
-            setTimeout(() => pricePopup.remove(), 1000);
+            
+            // Remove after animation
+            setTimeout(() => {
+                if (pricePopup.parentNode) {
+                    pricePopup.parentNode.removeChild(pricePopup);
+                }
+            }, 1000);
         }
 
         function openCart() {
-            alert('Cart functionality - your original cart modal would open here');
+            document.getElementById('cartModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCart() {
+            document.getElementById('cartModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
         }
 
         function scrollToSeason(season) {
@@ -1351,21 +1592,157 @@
             document.querySelector('.clear-search').style.display = 'none';
         }
 
-        // Other category render functions
+        // Comprehensive category render functions with cart functionality
         function renderCropsTable() {
             const tableContainer = document.getElementById('cropsTable');
-            let html = '<div class="season-section"><div class="season-header">Sample Crops</div>';
+            let html = '';
             
-            cropsData.forEach(crop => {
-                html += `<div class="item-card">
-                    <div class="item-name">${crop.name} (${crop.season}, ${crop.growthDays} days)</div>
+            const seasons = ['spring', 'summer', 'fall', 'winter'];
+            seasons.forEach(season => {
+                if (cropsData[season] && cropsData[season].length > 0) {
+                    html += `<div class="season-section">
+                        <div class="season-header ${season}">${season.charAt(0).toUpperCase() + season.slice(1)} Crops</div>`;
+                    
+                    cropsData[season].forEach(crop => {
+                        const basePrice = crop.prices.decent; // Use decent quality as base price
+                        html += `<div class="item-card" onclick="addToCart('${crop.name}', ${basePrice}, null, 'crop')">
+                            <div class="item-name">${crop.name}</div>
+                            <div class="item-price">${basePrice} G (Decent)</div>
+                            <div class="quality-grid">
+                                <div class="quality-item"><div class="quality-name">Decent</div><div class="quality-price">${crop.prices.decent} G</div></div>
+                                <div class="quality-item"><div class="quality-name">Good</div><div class="quality-price">${crop.prices.good} G</div></div>
+                                <div class="quality-item"><div class="quality-name">Perfect</div><div class="quality-price">${crop.prices.perfect} G</div></div>
+                                <div class="quality-item"><div class="quality-name">Shining</div><div class="quality-price">${crop.prices.shining} G</div></div>
+                            </div>
+                            <div class="item-details">
+                                <strong>Growth:</strong> ${crop.growthDays} days
+                                ${crop.regrows ? ` | <strong>Regrows:</strong> Every ${crop.regrowDays} days` : ' | Single harvest'}
+                                ${crop.requiresPaddy ? ' | Requires paddy field' : ''}
+                            </div>
+                        </div>`;
+                    });
+                    
+                    html += '</div>';
+                }
+            });
+            
+            tableContainer.innerHTML = html;
+        }
+
+        function renderAnimalProductsTable() {
+            const tableContainer = document.getElementById('animalTable');
+            let html = '';
+            
+            const categories = ['eggs', 'milk', 'other'];
+            categories.forEach(category => {
+                if (animalProductsData[category] && animalProductsData[category].length > 0) {
+                    html += `<div class="season-section">
+                        <div class="season-header">${category.charAt(0).toUpperCase() + category.slice(1)}</div>`;
+                    
+                    animalProductsData[category].forEach(product => {
+                        const basePrice = product.prices.decent;
+                        html += `<div class="item-card" onclick="addToCart('${product.name}', ${basePrice}, null, 'animal')">
+                            <div class="item-name">${product.name}</div>
+                            <div class="item-price">${basePrice} G (Decent)</div>
+                            <div class="quality-grid">
+                                <div class="quality-item"><div class="quality-name">Decent</div><div class="quality-price">${product.prices.decent} G</div></div>
+                                <div class="quality-item"><div class="quality-name">Good</div><div class="quality-price">${product.prices.good} G</div></div>
+                                <div class="quality-item"><div class="quality-name">Perfect</div><div class="quality-price">${product.prices.perfect} G</div></div>
+                                <div class="quality-item"><div class="quality-name">Shining</div><div class="quality-price">${product.prices.shining} G</div></div>
+                            </div>
+                            <div class="item-details">
+                                <strong>Frequency:</strong> ${product.frequency}
+                            </div>
+                        </div>`;
+                    });
+                    
+                    html += '</div>';
+                }
+            });
+            
+            tableContainer.innerHTML = html;
+        }
+
+        function renderMiningTable() {
+            const tableContainer = document.getElementById('miningTable');
+            let html = '';
+            
+            const categories = ['ores', 'refined', 'gems', 'wonderfuls', 'special'];
+            categories.forEach(category => {
+                if (miningData[category] && miningData[category].length > 0) {
+                    html += `<div class="season-section">
+                        <div class="season-header">${category.charAt(0).toUpperCase() + category.slice(1)}</div>`;
+                    
+                    miningData[category].forEach(item => {
+                        html += `<div class="item-card" onclick="addToCart('${item.name}', ${item.price}, null, 'mining')">
+                            <div class="item-name">${item.name}</div>
+                            <div class="item-price">${item.price} G</div>
+                            <div class="item-details">
+                                ${item.rarity ? `<strong>Rarity:</strong> ${item.rarity}` : ''}
+                                ${item.floors ? ` | <strong>Floors:</strong> ${item.floors}` : ''}
+                                ${item.requires ? ` | <strong>Requires:</strong> ${item.requires}` : ''}
+                                ${item.refinedGem ? ` | <strong>Refines to:</strong> ${item.refinedGem}` : ''}
+                            </div>
+                        </div>`;
+                    });
+                    
+                    html += '</div>';
+                }
+            });
+            
+            tableContainer.innerHTML = html;
+        }
+
+        function renderArtisanTable() {
+            const tableContainer = document.getElementById('artisanTable');
+            let html = '';
+            
+            const categories = ['cooked', 'processed', 'perfumes', 'beverages'];
+            categories.forEach(category => {
+                if (artisanData[category] && artisanData[category].length > 0) {
+                    html += `<div class="season-section">
+                        <div class="season-header">${category.charAt(0).toUpperCase() + category.slice(1)}</div>`;
+                    
+                    artisanData[category].forEach(item => {
+                        const price = typeof item.price === 'string' ? item.price : `${item.price} G`;
+                        html += `<div class="item-card" onclick="addToCart('${item.name}', ${typeof item.price === 'number' ? item.price : 0}, null, 'artisan')">
+                            <div class="item-name">${item.name}</div>
+                            <div class="item-price">${price}</div>
+                            <div class="item-details">
+                                ${item.method ? `<strong>Method:</strong> ${item.method}` : ''}
+                                ${item.energy ? ` | <strong>Energy:</strong> ${item.energy}` : ''}
+                                ${item.requires ? ` | <strong>Requires:</strong> ${item.requires}` : ''}
+                                ${item.qualityDependent ? ' | Quality dependent' : ''}
+                                ${item.agingRequired ? ' | Aging required' : ''}
+                            </div>
+                        </div>`;
+                    });
+                    
+                    html += '</div>';
+                }
+            });
+            
+            tableContainer.innerHTML = html;
+        }
+
+        function renderTreeFruitsTable() {
+            const tableContainer = document.getElementById('treeTable');
+            let html = '<div class="season-section"><div class="season-header">Tree Fruits</div>';
+            
+            treeFruitsData.forEach(fruit => {
+                const basePrice = fruit.prices.decent;
+                html += `<div class="item-card" onclick="addToCart('${fruit.name}', ${basePrice}, null, 'tree')">
+                    <div class="item-name">${fruit.name}</div>
+                    <div class="item-price">${basePrice} G (Decent)</div>
                     <div class="quality-grid">
-                        <div class="quality-item"><div class="quality-name">Decent</div><div class="quality-price">${crop.prices.decent} G</div></div>
-                        <div class="quality-item"><div class="quality-name">Good</div><div class="quality-price">${crop.prices.good} G</div></div>
-                        <div class="quality-item"><div class="quality-name">Perfect</div><div class="quality-price">${crop.prices.perfect} G</div></div>
-                        <div class="quality-item"><div class="quality-name">Shining</div><div class="quality-price">${crop.prices.shining} G</div></div>
+                        <div class="quality-item"><div class="quality-name">Decent</div><div class="quality-price">${fruit.prices.decent} G</div></div>
+                        <div class="quality-item"><div class="quality-name">Good</div><div class="quality-price">${fruit.prices.good} G</div></div>
+                        <div class="quality-item"><div class="quality-name">Perfect</div><div class="quality-price">${fruit.prices.perfect} G</div></div>
+                        <div class="quality-item"><div class="quality-name">Shining</div><div class="quality-price">${fruit.prices.shining} G</div></div>
                     </div>
-                    <div class="item-details">${crop.regrows ? 'Regrows after harvest' : 'Single harvest crop'}</div>
+                    <div class="item-details">
+                        <strong>Season:</strong> ${fruit.season} | <strong>Maturity:</strong> ${fruit.growthYears} years
+                    </div>
                 </div>`;
             });
             
@@ -1373,19 +1750,33 @@
             tableContainer.innerHTML = html;
         }
 
-        function renderMiningTable() {
-            const tableContainer = document.getElementById('miningTable');
-            let html = '<div class="season-section"><div class="season-header">Sample Mining Items</div>';
+        function renderForagedTable() {
+            const tableContainer = document.getElementById('forageTable');
+            let html = '';
             
-            miningData.forEach(item => {
-                html += `<div class="item-card">
-                    <div class="item-name">${item.name}</div>
-                    <div class="item-price">${item.price} G</div>
-                    <div class="item-details"><strong>Category:</strong> ${item.category}<br>${item.description}</div>
-                </div>`;
+            const categories = ['herbs', 'mushrooms', 'berries'];
+            categories.forEach(category => {
+                if (foragedData[category] && foragedData[category].length > 0) {
+                    html += `<div class="season-section">
+                        <div class="season-header">${category.charAt(0).toUpperCase() + category.slice(1)}</div>`;
+                    
+                    foragedData[category].forEach(item => {
+                        html += `<div class="item-card" onclick="addToCart('${item.name}', ${item.price}, null, 'foraged')">
+                            <div class="item-name">${item.name}</div>
+                            <div class="item-price">${item.price} G</div>
+                            <div class="item-details">
+                                ${item.seasons ? `<strong>Seasons:</strong> ${item.seasons.join(', ')}` : ''}
+                                ${item.location ? ` | <strong>Location:</strong> ${item.location}` : ''}
+                                ${item.effect ? ` | <strong>Effect:</strong> ${item.effect}` : ''}
+                                ${item.warning ? ` | <strong>Warning:</strong> ${item.warning}` : ''}
+                            </div>
+                        </div>`;
+                    });
+                    
+                    html += '</div>';
+                }
             });
             
-            html += '</div>';
             tableContainer.innerHTML = html;
         }
 
@@ -1405,6 +1796,13 @@
             if (clearButton) {
                 clearButton.addEventListener('click', clearSearch);
             }
+
+            // Cart modal close on outside click
+            document.getElementById('cartModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeCart();
+                }
+            });
 
             updateCartUI();
         });
