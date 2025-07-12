@@ -38,7 +38,7 @@
         /* Cart System Styles */
         .cart-container {
             position: fixed;
-            bottom: 100px;
+            bottom: 120px;
             right: 20px;
             z-index: 1001;
             display: flex;
@@ -221,6 +221,8 @@
             align-items: center;
             gap: 10px;
             flex-wrap: wrap;
+            min-width: 120px;
+            justify-content: center;
         }
 
         .cart-item-totals {
@@ -658,7 +660,7 @@
         /* Cart System - exactly like original */
         .cart-container {
             position: fixed;
-            bottom: 100px;
+            bottom: 120px;
             right: 20px;
             z-index: 1001;
             display: flex;
@@ -917,9 +919,8 @@
         <div id="fish-section" class="section">
             <div class="header">
                 <div class="header-overlay"></div>
-                <button class="back-button" onclick="showSection('main')">← Categories</button>
                 <div class="header-content">
-                    <h1>🐟 Fish Price List</h1>
+                    <h1>Fish Price List</h1>
                     <p>Harvest Moon: Animal Parade</p>
                 </div>
             </div>
@@ -972,6 +973,10 @@
                 <button class="back-nav-btn" onclick="showSection('main')">←</button>
                 <button class="sort-btn active" onclick="sortCropsByPrice('asc')">💰 Price: Low to High</button>
                 <button class="sort-btn" onclick="sortCropsByPrice('desc')">💰 Price: High to Low</button>
+                <button class="season-nav-btn spring" onclick="scrollToCropSeason('Spring')">🌸 Spring</button>
+                <button class="season-nav-btn summer" onclick="scrollToCropSeason('Summer')">☀️ Summer</button>
+                <button class="season-nav-btn fall" onclick="scrollToCropSeason('Fall')">🍂 Fall</button>
+                <button class="season-nav-btn winter" onclick="scrollToCropSeason('Winter')">❄️ Winter</button>
             </div>
             
             <!-- Cart Container -->
@@ -1001,6 +1006,11 @@
                 <button class="back-nav-btn" onclick="showSection('main')">←</button>
                 <button class="sort-btn active" onclick="sortMiningByPrice('asc')">💰 Price: Low to High</button>
                 <button class="sort-btn" onclick="sortMiningByPrice('desc')">💰 Price: High to Low</button>
+                <button class="season-nav-btn spring" onclick="scrollToMiningSection('Ores')">⛏️ Ores</button>
+                <button class="season-nav-btn summer" onclick="scrollToMiningSection('Refined')">💎 Refined</button>
+                <button class="season-nav-btn fall" onclick="scrollToMiningSection('Gems')">💎 Gems</button>
+                <button class="season-nav-btn winter" onclick="scrollToMiningSection('Wonderfuls')">✨ Wonderfuls</button>
+                <button class="season-nav-btn any-season" onclick="scrollToMiningSection('Special')">🌟 Special</button>
             </div>
             
             <!-- Cart Container -->
@@ -1030,6 +1040,9 @@
                 <button class="back-nav-btn" onclick="showSection('main')">←</button>
                 <button class="sort-btn active" onclick="sortAnimalsByPrice('asc')">💰 Price: Low to High</button>
                 <button class="sort-btn" onclick="sortAnimalsByPrice('desc')">💰 Price: High to Low</button>
+                <button class="season-nav-btn spring" onclick="scrollToAnimalSection('Eggs')">🥚 Eggs</button>
+                <button class="season-nav-btn summer" onclick="scrollToAnimalSection('Milk')">🥛 Milk</button>
+                <button class="season-nav-btn fall" onclick="scrollToAnimalSection('Other')">🐄 Other</button>
             </div>
             
             <!-- Cart Container -->
@@ -1059,6 +1072,10 @@
                 <button class="back-nav-btn" onclick="showSection('main')">←</button>
                 <button class="sort-btn active" onclick="sortArtisanByPrice('asc')">💰 Price: Low to High</button>
                 <button class="sort-btn" onclick="sortArtisanByPrice('desc')">💰 Price: High to Low</button>
+                <button class="season-nav-btn spring" onclick="scrollToArtisanSection('Cooked')">🍳 Cooked</button>
+                <button class="season-nav-btn summer" onclick="scrollToArtisanSection('Processed')">🏭 Processed</button>
+                <button class="season-nav-btn fall" onclick="scrollToArtisanSection('Perfumes')">🌸 Perfumes</button>
+                <button class="season-nav-btn winter" onclick="scrollToArtisanSection('Beverages')">🥤 Beverages</button>
             </div>
             
             <!-- Cart Container -->
@@ -1088,6 +1105,9 @@
                 <button class="back-nav-btn" onclick="showSection('main')">←</button>
                 <button class="sort-btn active" onclick="sortForageByPrice('asc')">💰 Price: Low to High</button>
                 <button class="sort-btn" onclick="sortForageByPrice('desc')">💰 Price: High to Low</button>
+                <button class="season-nav-btn spring" onclick="scrollToForageSection('Herbs')">🌿 Herbs</button>
+                <button class="season-nav-btn summer" onclick="scrollToForageSection('Mushrooms')">🍄 Mushrooms</button>
+                <button class="season-nav-btn fall" onclick="scrollToForageSection('Berries')">🫐 Berries</button>
             </div>
             
             <!-- Cart Container -->
@@ -1117,6 +1137,7 @@
                 <button class="back-nav-btn" onclick="showSection('main')">←</button>
                 <button class="sort-btn active" onclick="sortTreesByPrice('asc')">💰 Price: Low to High</button>
                 <button class="sort-btn" onclick="sortTreesByPrice('desc')">💰 Price: High to Low</button>
+                <button class="season-nav-btn spring" onclick="scrollToTreeSection('Tree Fruits')">🌳 Tree Fruits</button>
             </div>
             
             <!-- Cart Container -->
@@ -1789,6 +1810,72 @@
             const element = document.getElementById(seasonId);
             if (element) {
                 element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+        
+        function scrollToCropSeason(season) {
+            const sections = document.querySelectorAll('#cropsTable .season-section');
+            for (let section of sections) {
+                const header = section.querySelector('.season-header');
+                if (header && header.textContent.includes(season)) {
+                    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    break;
+                }
+            }
+        }
+        
+        function scrollToMiningSection(section) {
+            const sections = document.querySelectorAll('#miningTable .season-section');
+            for (let sectionElement of sections) {
+                const header = sectionElement.querySelector('.season-header');
+                if (header && header.textContent.includes(section)) {
+                    sectionElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    break;
+                }
+            }
+        }
+        
+        function scrollToAnimalSection(section) {
+            const sections = document.querySelectorAll('#animalTable .season-section');
+            for (let sectionElement of sections) {
+                const header = sectionElement.querySelector('.season-header');
+                if (header && header.textContent.includes(section)) {
+                    sectionElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    break;
+                }
+            }
+        }
+        
+        function scrollToArtisanSection(section) {
+            const sections = document.querySelectorAll('#artisanTable .season-section');
+            for (let sectionElement of sections) {
+                const header = sectionElement.querySelector('.season-header');
+                if (header && header.textContent.includes(section)) {
+                    sectionElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    break;
+                }
+            }
+        }
+        
+        function scrollToForageSection(section) {
+            const sections = document.querySelectorAll('#forageTable .season-section');
+            for (let sectionElement of sections) {
+                const header = sectionElement.querySelector('.season-header');
+                if (header && header.textContent.includes(section)) {
+                    sectionElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    break;
+                }
+            }
+        }
+        
+        function scrollToTreeSection(section) {
+            const sections = document.querySelectorAll('#treeTable .season-section');
+            for (let sectionElement of sections) {
+                const header = sectionElement.querySelector('.season-header');
+                if (header && header.textContent.includes(section)) {
+                    sectionElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    break;
+                }
             }
         }
 
