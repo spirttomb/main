@@ -1,0 +1,777 @@
+{
+  "crops": {
+    "spring": [],
+    "summer": [],
+    "fall": [],
+    "winter": []
+  },
+  "livestock": {
+    "eggs": [
+      {
+        "name": "Ostrich Egg",
+        "prices": {
+          "decent": 350,
+          "good": 525,
+          "perfect": 700,
+          "shining": 1050
+        },
+        "frequency": "530 G",
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/ostrichegg.jpg"
+      }
+    ],
+    "milk": [
+      {
+        "name": "Milk",
+        "prices": {
+          "decent": 170,
+          "good": 255,
+          "perfect": 340,
+          "shining": 510
+        },
+        "frequency": "260 G",
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/milk_cow.jpg"
+      },
+      {
+        "name": "Sheep Milk",
+        "prices": {
+          "decent": 120,
+          "good": 180,
+          "perfect": 240,
+          "shining": 360
+        },
+        "frequency": "210 G",
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/milk_sheep.jpg"
+      },
+      {
+        "name": "Goat Milk",
+        "prices": {
+          "decent": 140,
+          "good": 210,
+          "perfect": 280,
+          "shining": 420
+        },
+        "frequency": "230 G",
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/milk_goat.jpg"
+      }
+    ],
+    "other": [
+      {
+        "name": "Baby Cow",
+        "prices": {
+          "decent": 1,
+          "good": 2,
+          "perfect": 2,
+          "shining": 3
+        },
+        "frequency": "1 or higher",
+        "imageUrl": null
+      },
+      {
+        "name": "Adult Cow",
+        "prices": {
+          "decent": 2,
+          "good": 3,
+          "perfect": 4,
+          "shining": 6
+        },
+        "frequency": "1 or higher",
+        "imageUrl": null
+      },
+      {
+        "name": "Baby Horse",
+        "prices": {
+          "decent": 2,
+          "good": 3,
+          "perfect": 4,
+          "shining": 6
+        },
+        "frequency": "1 or higher",
+        "imageUrl": null
+      },
+      {
+        "name": "Adult Horse",
+        "prices": {
+          "decent": 3,
+          "good": 5,
+          "perfect": 6,
+          "shining": 9
+        },
+        "frequency": "1 or higher",
+        "imageUrl": null
+      },
+      {
+        "name": "Baby Sheep",
+        "prices": {
+          "decent": 1,
+          "good": 2,
+          "perfect": 2,
+          "shining": 3
+        },
+        "frequency": "1 or higher",
+        "imageUrl": null
+      },
+      {
+        "name": "Adult Sheep",
+        "prices": {
+          "decent": 1,
+          "good": 2,
+          "perfect": 2,
+          "shining": 3
+        },
+        "frequency": "1 or higher",
+        "imageUrl": null
+      },
+      {
+        "name": "Baby Goat",
+        "prices": {
+          "decent": 3,
+          "good": 5,
+          "perfect": 6,
+          "shining": 9
+        },
+        "frequency": "2 or higher",
+        "imageUrl": null
+      },
+      {
+        "name": "Adult Goat",
+        "prices": {
+          "decent": 4,
+          "good": 6,
+          "perfect": 8,
+          "shining": 12
+        },
+        "frequency": "2 or higher",
+        "imageUrl": null
+      },
+      {
+        "name": "Baby Ostrich",
+        "prices": {
+          "decent": 4,
+          "good": 6,
+          "perfect": 8,
+          "shining": 12
+        },
+        "frequency": "3",
+        "imageUrl": null
+      },
+      {
+        "name": "Adult Ostrich",
+        "prices": {
+          "decent": 4,
+          "good": 6,
+          "perfect": 8,
+          "shining": 12
+        },
+        "frequency": "3",
+        "imageUrl": null
+      },
+      {
+        "name": "Baby Cow",
+        "prices": {
+          "decent": 1,
+          "good": 2,
+          "perfect": 2,
+          "shining": 3
+        },
+        "frequency": "1 or higher",
+        "imageUrl": null
+      },
+      {
+        "name": "Adult Cow",
+        "prices": {
+          "decent": 2,
+          "good": 3,
+          "perfect": 4,
+          "shining": 6
+        },
+        "frequency": "1 or higher",
+        "imageUrl": null
+      },
+      {
+        "name": "Baby Horse",
+        "prices": {
+          "decent": 2,
+          "good": 3,
+          "perfect": 4,
+          "shining": 6
+        },
+        "frequency": "1 or higher",
+        "imageUrl": null
+      },
+      {
+        "name": "Adult Horse",
+        "prices": {
+          "decent": 3,
+          "good": 5,
+          "perfect": 6,
+          "shining": 9
+        },
+        "frequency": "1 or higher",
+        "imageUrl": null
+      },
+      {
+        "name": "Baby Sheep",
+        "prices": {
+          "decent": 1,
+          "good": 2,
+          "perfect": 2,
+          "shining": 3
+        },
+        "frequency": "1 or higher",
+        "imageUrl": null
+      },
+      {
+        "name": "Adult Sheep",
+        "prices": {
+          "decent": 1,
+          "good": 2,
+          "perfect": 2,
+          "shining": 3
+        },
+        "frequency": "1 or higher",
+        "imageUrl": null
+      },
+      {
+        "name": "Baby Goat",
+        "prices": {
+          "decent": 3,
+          "good": 5,
+          "perfect": 6,
+          "shining": 9
+        },
+        "frequency": "2 or higher",
+        "imageUrl": null
+      },
+      {
+        "name": "Adult Goat",
+        "prices": {
+          "decent": 4,
+          "good": 6,
+          "perfect": 8,
+          "shining": 12
+        },
+        "frequency": "2 or higher",
+        "imageUrl": null
+      },
+      {
+        "name": "Baby Ostrich",
+        "prices": {
+          "decent": 4,
+          "good": 6,
+          "perfect": 8,
+          "shining": 12
+        },
+        "frequency": "3",
+        "imageUrl": null
+      },
+      {
+        "name": "Adult Ostrich",
+        "prices": {
+          "decent": 4,
+          "good": 6,
+          "perfect": 8,
+          "shining": 12
+        },
+        "frequency": "3",
+        "imageUrl": null
+      },
+      {
+        "name": "Butter",
+        "prices": {
+          "decent": 190,
+          "good": 285,
+          "perfect": 380,
+          "shining": 570
+        },
+        "frequency": "280 G",
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/butter_cow.jpg"
+      },
+      {
+        "name": "Cheese",
+        "prices": {
+          "decent": 190,
+          "good": 285,
+          "perfect": 380,
+          "shining": 570
+        },
+        "frequency": "280 G",
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/cheese_cow.jpg"
+      },
+      {
+        "name": "Sheep Butter",
+        "prices": {
+          "decent": 130,
+          "good": 195,
+          "perfect": 260,
+          "shining": 390
+        },
+        "frequency": "230 G",
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/butter_sheep.jpg"
+      },
+      {
+        "name": "Sheep Cheese",
+        "prices": {
+          "decent": 130,
+          "good": 195,
+          "perfect": 260,
+          "shining": 390
+        },
+        "frequency": "230 G",
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/cheese_sheep.jpg"
+      },
+      {
+        "name": "Wool",
+        "prices": {
+          "decent": 620,
+          "good": 930,
+          "perfect": 1240,
+          "shining": 1860
+        },
+        "frequency": "920 G",
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/wool.jpg"
+      },
+      {
+        "name": "Yarn",
+        "prices": {
+          "decent": 680,
+          "good": 1020,
+          "perfect": 1360,
+          "shining": 2040
+        },
+        "frequency": "1010 G",
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/yarn_plain.jpg"
+      },
+      {
+        "name": "Goat Butter",
+        "prices": {
+          "decent": 150,
+          "good": 225,
+          "perfect": 300,
+          "shining": 450
+        },
+        "frequency": "250 G",
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/butter_goat.jpg"
+      },
+      {
+        "name": "Goat Cheese",
+        "prices": {
+          "decent": 150,
+          "good": 225,
+          "perfect": 300,
+          "shining": 450
+        },
+        "frequency": "250 G",
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/cheese_goat.jpg"
+      }
+    ]
+  },
+  "poultry": {
+    "eggs": [
+      {
+        "name": "Chicken Egg",
+        "prices": {
+          "decent": 50,
+          "good": 75,
+          "perfect": 100,
+          "shining": 150
+        },
+        "frequency": "80 G",
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/egg.jpg"
+      },
+      {
+        "name": "Duck Egg",
+        "prices": {
+          "decent": 80,
+          "good": 120,
+          "perfect": 160,
+          "shining": 240
+        },
+        "frequency": "120 G",
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/duckegg.jpg"
+      }
+    ],
+    "milk": [],
+    "other": [
+      {
+        "name": "Mayonnaise",
+        "prices": {
+          "decent": 80,
+          "good": 120,
+          "perfect": 160,
+          "shining": 240
+        },
+        "frequency": "100 G",
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/chickenmayo.jpg"
+      },
+      {
+        "name": "Silk",
+        "prices": {
+          "decent": 660,
+          "good": 990,
+          "perfect": 1320,
+          "shining": 1980
+        },
+        "frequency": "990 G",
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/silk.jpg"
+      },
+      {
+        "name": "Silk Yarn",
+        "prices": {
+          "decent": 735,
+          "good": 1103,
+          "perfect": 1470,
+          "shining": 2205
+        },
+        "frequency": "1090 G",
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/silkyarn.jpg"
+      }
+    ]
+  },
+  "trees": [
+    {
+      "name": "Apple Tree",
+      "season": "990 GMarimba Lv 1",
+      "growthYears": 2,
+      "prices": {
+        "decent": 130225320415510,
+        "good": 195337980623265,
+        "perfect": 260450640831020,
+        "shining": 390675961246530
+      },
+      "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/apple.jpg"
+    },
+    {
+      "name": "Orange Tree",
+      "season": "860 GMarimba Lv 1",
+      "growthYears": 2,
+      "prices": {
+        "decent": 130225320415510,
+        "good": 195337980623265,
+        "perfect": 260450640831020,
+        "shining": 390675961246530
+      },
+      "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/orange.jpg"
+    },
+    {
+      "name": "Cherry Tree",
+      "season": "860 GMarimba Lv 3",
+      "growthYears": 2,
+      "prices": {
+        "decent": 144239334429524,
+        "good": 216359001644286,
+        "perfect": 288478668859048,
+        "shining": 432718003288572
+      },
+      "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/cherry.jpg"
+    },
+    {
+      "name": "Chestnut Tree",
+      "season": "860 GMarimba Lv 2",
+      "growthYears": 2,
+      "prices": {
+        "decent": 144239334429524,
+        "good": 216359001644286,
+        "perfect": 288478668859048,
+        "shining": 432718003288572
+      },
+      "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/chestnut.jpg"
+    },
+    {
+      "name": "Olive Tree",
+      "season": "860 GMarimba Lv 4",
+      "growthYears": 2,
+      "prices": {
+        "decent": 114214314414514,
+        "good": 171321471621771,
+        "perfect": 228428628829028,
+        "shining": 342642943243542
+      },
+      "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/olive.jpg"
+    },
+    {
+      "name": "Coffee Bean Tree",
+      "season": "980 GMarimba Lv 4",
+      "growthYears": 2,
+      "prices": {
+        "decent": 127222321416511,
+        "good": 190833482124767,
+        "perfect": 254444642833022,
+        "shining": 381666964249533
+      },
+      "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/coffee.jpg"
+    }
+  ],
+  "mining": {
+    "ores": [
+      {
+        "name": "Junk Ore",
+        "price": 10,
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/junkore.jpg",
+        "rarity": "YES",
+        "floors": "YES"
+      },
+      {
+        "name": "Iron Ore",
+        "price": 20,
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/ironore.jpg",
+        "rarity": "YES",
+        "floors": "YES"
+      },
+      {
+        "name": "Copper Ore",
+        "price": 30,
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/copperore.jpg",
+        "rarity": "YES",
+        "floors": "YES"
+      },
+      {
+        "name": "Silver Ore",
+        "price": 40,
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/silverore.jpg",
+        "rarity": "YES",
+        "floors": "YES"
+      },
+      {
+        "name": "Gold Ore",
+        "price": 50,
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/goldore.jpg",
+        "rarity": "YES",
+        "floors": "YES"
+      },
+      {
+        "name": "Rare Ore",
+        "price": 150,
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/rareore.jpg",
+        "rarity": "YES",
+        "floors": "YES"
+      }
+    ],
+    "refined": [
+      {
+        "name": "Iron",
+        "price": 50,
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/ironbar.jpg",
+        "rarity": "Processed from Iron Ore."
+      },
+      {
+        "name": "Copper",
+        "price": 70,
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/copperbar.jpg",
+        "rarity": "Processed from Copper Ore."
+      },
+      {
+        "name": "Silver",
+        "price": 100,
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/silverbar.jpg",
+        "rarity": "Processed from Silver Ore."
+      },
+      {
+        "name": "Gold",
+        "price": 150,
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/goldbar.jpg",
+        "rarity": "Processed from Gold Ore."
+      }
+    ],
+    "gems": [
+      {
+        "name": "Sapphire",
+        "price": 620,
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/sapphire.jpg",
+        "rarity": "Processed from Blue Wonderful."
+      },
+      {
+        "name": "Ruby",
+        "price": 830,
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/ruby.jpg",
+        "rarity": "Processed from Red Wonderful."
+      },
+      {
+        "name": "Emerald",
+        "price": 690,
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/emerald.jpg",
+        "rarity": "Processed from Green Wonderful."
+      },
+      {
+        "name": "Diamond",
+        "price": 1330,
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/diamond.jpg",
+        "rarity": "Processed from White Wonderful."
+      },
+      {
+        "name": "Topaz",
+        "price": 550,
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/topaz.jpg",
+        "rarity": "Processed from Yellow Wonderful."
+      },
+      {
+        "name": "Amethyst",
+        "price": 420,
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/amethyst.jpg",
+        "rarity": "Processed from Purple Wonderful."
+      }
+    ],
+    "wonderfuls": [
+      {
+        "name": "Blue Wonderful",
+        "price": 30,
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/wonderblue.jpg",
+        "rarity": "No",
+        "floors": "No"
+      },
+      {
+        "name": "Red Wonderful",
+        "price": 30,
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/wonderred.jpg",
+        "rarity": "YES",
+        "floors": "YES(Rarely)"
+      },
+      {
+        "name": "Green Wonderful",
+        "price": 30,
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/wondergreen.jpg",
+        "rarity": "No",
+        "floors": "No"
+      },
+      {
+        "name": "White Wonderful",
+        "price": 30,
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/wonderwhite.jpg",
+        "rarity": "No",
+        "floors": "YES"
+      },
+      {
+        "name": "Yellow Wonderful",
+        "price": 30,
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/wonderyellow.jpg",
+        "rarity": "YES",
+        "floors": "YES"
+      },
+      {
+        "name": "Purple Wonderful",
+        "price": 30,
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/wonderpurple.jpg",
+        "rarity": "No",
+        "floors": "No"
+      }
+    ],
+    "special": [
+      {
+        "name": "Junk",
+        "price": 10,
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/junkbar.jpg",
+        "rarity": "Processed from all ores."
+      },
+      {
+        "name": "Rare Metal",
+        "price": 240,
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/rarebar.jpg",
+        "rarity": "Processed from Rare Ore."
+      },
+      {
+        "name": "Lapis Lazuli",
+        "price": 300,
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/lapis.jpg",
+        "rarity": "Processed from Blue Wonderful."
+      },
+      {
+        "name": "Aquamarine",
+        "price": 420,
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/aquamarine.jpg",
+        "rarity": "Processed from Blue Wonderful."
+      },
+      {
+        "name": "Garnet",
+        "price": 270,
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/garnet.jpg",
+        "rarity": "Processed from Red Wonderful(not a Purple Wonderful)"
+      },
+      {
+        "name": "Jade",
+        "price": 190,
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/jade.jpg",
+        "rarity": "Processed from Green Wonderful."
+      },
+      {
+        "name": "Peridot",
+        "price": 350,
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/peridot.jpg",
+        "rarity": "Processed from Green Wonderful."
+      },
+      {
+        "name": "Crystal",
+        "price": 170,
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/crystal.jpg",
+        "rarity": "Processed from White Wonderful."
+      },
+      {
+        "name": "Opal",
+        "price": 330,
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/opal.jpg",
+        "rarity": "Processed from White Wonderful."
+      },
+      {
+        "name": "Amber",
+        "price": 250,
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/amber.jpg",
+        "rarity": "Processed from Yellow Wonderful."
+      },
+      {
+        "name": "Spinel",
+        "price": 220,
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/spinel.jpg",
+        "rarity": "Processed from Purple Wonderful."
+      },
+      {
+        "name": "Glass",
+        "price": 10,
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/glass.jpg",
+        "rarity": "Processed from any color Wonderful."
+      },
+      {
+        "name": "Pearl",
+        "price": 90,
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/pearl.jpg",
+        "rarity": "On the ground only in Watery Cave."
+      },
+      {
+        "name": "Black Pearl",
+        "price": 150,
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/blackpearl.jpg",
+        "rarity": "On the ground (floor 25, 44, 49) only in Watery Cave."
+      },
+      {
+        "name": "Rocksalt",
+        "price": 50,
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/rocksalt.jpg",
+        "rarity": "YES",
+        "floors": "YES"
+      },
+      {
+        "name": "Mushroom",
+        "price": 40,
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/mushroom.jpg",
+        "rarity": "YES",
+        "floors": "YES"
+      },
+      {
+        "name": "Button Mushroom",
+        "price": 80,
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/mushroom2.jpg",
+        "rarity": "YES",
+        "floors": "YES"
+      },
+      {
+        "name": "Toadstool",
+        "price": 20,
+        "imageUrl": "https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/toadstool.jpg",
+        "rarity": "YES",
+        "floors": "YES"
+      }
+    ]
+  },
+  "forage": {
+    "herbs": [],
+    "mushrooms": [],
+    "berries": []
+  }
+}
