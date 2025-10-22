@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fish Price Guide</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: Arial, sans-serif; 
+            background: #1a1a1a; 
+            color: #fff; 
+            padding: 10px;
+        }
+        .header {
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            background-image: url('https://i.ibb.co/mFr0JWbc/markup-1000006439-1.png');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.4);
+            border-radius: 10px;
+        }
+        .header h1 {
+            position: relative;
+            z-index: 2;
+            font-size: 24px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+        .search {
+            background: #2a2a2a;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .search input {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: #1e1e1e;
+            color: #fff;
+            font-size: 16px;
+        }
+        .search input::placeholder { color: #aaa; }
+        .season {
+            background: #2a2a2a;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+        .season-title {
+            background: #374151;
+            padding: 15px;
+            font-weight: bold;
+            text-align: center;
+            font-size: 18px;
+        }
+        .season-title.spring { background: #4a7c59; }
+        .season-title.summer { background: #8a6731; }
+        .season-title.fall { background: #8a4b31; }
+        .season-title.winter { background: #4b668a; }
+        .season-title.any-season { background: #6b7280; }
+        .location {
+            background: #1e1e1e;
+            margin: 10px;
+            border-radius: 8px;
+        }
+        .location-title {
+            background: #4a5568;
+            padding: 10px;
+            font-weight: bold;
+        }
+        .fish {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            border-bottom: 1px solid #333;
+        }
+        .fish:last-child { border-bottom: none; }
+        .fish img {
+            width: 40px;
+            height: 30px;
+            border-radius: 4px;
+            margin-right: 12px;
+            background: #333;
+        }
+        .fish-info {
+            flex: 1;
+        }
+        .fish-name {
+            font-weight: bold;
+            color: #90cdf4;
+            margin-bottom: 4px;
+        }
+        .fish-details {
+            font-size: 12px;
+            color: #aaa;
+        }
+        .fish-price {
+            font-weight: bold;
+            color: #68d391;
+            font-size: 16px;
+        }
+        .nav {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+            background: rgba(30,30,30,0.95);
+            border-radius: 25px;
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            justify-content: center;
+        }
+        .nav button {
+            background: #4a5568;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        .nav button.active { background: #68d391; color: #000; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Fish Price Guide</h1>
+        <p>Harvest Moon: Animal Parade</p>
+    </div>
+
+    <div class="search">
+        <input type="text" id="searchInput" placeholder="Search for fish...">
+        <div id="searchResults"></div>
+    </div>
+
+    <div id="fishContainer">
+        <!-- Fish data will be populated here -->
+    </div>
+
+    <div class="nav">
+        <button onclick="sortByPrice('asc')" class="active">💰 Low</button>
+        <button onclick="sortByPrice('desc')">💰 High</button>
+        <button onclick="scrollToSeason('Spring')">🌸 Spring</button>
+        <button onclick="scrollToSeason('Summer')">☀️ Summer</button>
+        <button onclick="scrollToSeason('Fall')">🍂 Fall</button>
+        <button onclick="scrollToSeason('Winter')">❄️ Winter</button>
+        <button onclick="scrollToSeason('Any Season')">🎣 Any</button>
+    </div>
+
+    <script>
+        const fishData = [
+            {name: "Swordfish", price: 322, location: "Toucan Island", specificLocation: "south shore, west shore", season: "Any season", weather: "Any weather", time: "All day", exp: 65, spriteId: 1},
+            {name: "Char", price: 99, location: "Goddess Pond", specificLocation: "shrine waters, behind divine tree", season: "Any season", weather: "Any weather", time: "5am-3pm", exp: 20, spriteId: 2},
+            {name: "Rainbow Trout", price: 58, location: "Multiple", specificLocation: "Clarinet District (stream), Garmon Mine (waterfall, stream), Flute Fields (bridge south/north), Toucan Island (pond)", season: "Any season", weather: "Any weather", time: "5am-7pm", exp: 13, spriteId: 3},
+            {name: "Masu Trout", price: 109, location: "Multiple", specificLocation: "Garmon Mine (waterfall), Flute Fields (bridge south, pond)", season: "Spring, Summer, Fall", weather: "Any weather", time: "5am-3pm", exp: 10, spriteId: 4},
+            {name: "Steelhead", price: 72, location: "Flute Fields", specificLocation: "river west, bridge north/south", season: "Any season", weather: "Any weather", time: "7pm-9am", exp: 23, spriteId: 5},
+            {name: "Carp", price: 59, location: "Multiple", specificLocation: "Clarinet District (pond), Goddess Pond (shrine, divine tree), Fugue Forest (footbridge left)", season: "Any season", weather: "Any weather", time: "Any time", exp: 20, spriteId: 6},
+            {name: "Eel", price: 198, location: "Multiple", specificLocation: "Garmon Mine (waterfall), Flute Fields (bridge south), Water Cave (Floor 0, Floor 50)", season: "Summer, Fall, Winter", weather: "Any weather", time: "3pm-5am", exp: 55, spriteId: 7},
+            {name: "Pond Smelt", price: 7, location: "Multiple", specificLocation: "Clarinet District (pond, stream), Goddess Pond (shrine, divine tree), Flute Fields (river west), Fugue Forest (footbridge), Toucan Island (pond)", season: "Any season", weather: "Any weather", time: "Any time", exp: 10, spriteId: 8},
+            {name: "Huchen", price: 250, location: "Multiple", specificLocation: "Garmon Mine (waterfall), Flute Fields (bridge south)", season: "Spring, Winter", weather: "Rain, Thunderstorm, Hurricane, Snow, Snowstorm", time: "7pm-9am", exp: 80, spriteId: 9},
+            {name: "Salmon", price: 277, location: "Flute Fields", specificLocation: "bridge north, bridge south", season: "Fall", weather: "Any weather", time: "5am-7pm", exp: 32, spriteId: 10},
+            {name: "Catfish", price: 106, location: "Multiple", specificLocation: "Clarinet District (pond, stream), Fugue Forest (footbridge), Goddess Pond (shrine, divine tree)", season: "Any season", weather: "Any weather", time: "3pm-5am", exp: 15, spriteId: 11},
+            {name: "Puffer", price: 17, location: "Multiple", specificLocation: "Clarinet District (shores), Harmonica Town (seawall, dock, lighthouse, beach), Water Cave (floor 0)", season: "Spring, Winter", weather: "Any weather", time: "Any time", exp: 13, spriteId: 12},
+            {name: "Shark", price: 347, location: "Toucan Island", specificLocation: "south shore, north shore, northeast shore", season: "Any season", weather: "Any weather", time: "5am-9am, 3pm-9pm", exp: 80, spriteId: 37},
+            {name: "Skull Jellyfish", price: 665, location: "Water Cave", specificLocation: "floor 50 (south end)", season: "Spring, Fall", weather: "Any weather", time: "7pm-5am", exp: 120, spriteId: 38},
+            {name: "Giant Arowana", price: 650, location: "Goddess Pond", specificLocation: "shrine waters (right side)", season: "Spring, Summer, Fall", weather: "Rain, Thunderstorm, Hurricane", time: "5am-7pm", exp: 130, spriteId: 39},
+            {name: "Barracuda", price: 680, location: "Toucan Island", specificLocation: "south shore", season: "Any season", weather: "Sunny, Cloudy, Snow, Snowstorm", time: "8am-7pm", exp: 130, spriteId: 40},
+            {name: "Tarpon", price: 800, location: "Toucan Island", specificLocation: "northeast shore", season: "Spring, Winter", weather: "Sunny, Cloudy, Snow, Snowstorm", time: "7pm-3pm", exp: 130, spriteId: 41},
+            {name: "Giant Halibut", price: 850, location: "Harmonica Town", specificLocation: "lighthouse", season: "Spring, Winter", weather: "Sunny", time: "Any time", exp: 110, spriteId: 45}
+        ];
+
+        let currentSort = 'asc';
+        let filteredData = fishData;
+
+        function categorizeSeasons(season) {
+            if (season === "Any season") return "Any Season";
+            const seasons = [];
+            if (season.includes("Spring")) seasons.push("Spring");
+            if (season.includes("Summer")) seasons.push("Summer");
+            if (season.includes("Fall")) seasons.push("Fall");
+            if (season.includes("Winter")) seasons.push("Winter");
+            return seasons.length === 1 ? seasons[0] : seasons;
+        }
+
+        function parseLocations(fish) {
+            if (fish.location !== "Multiple") return [fish.location];
+            const locations = [];
+            const specificLoc = fish.specificLocation.toLowerCase();
+            if (specificLoc.includes('clarinet district')) locations.push('Clarinet District');
+            if (specificLoc.includes('harmonica town')) locations.push('Harmonica Town');
+            if (specificLoc.includes('flute fields')) locations.push('Flute Fields');
+            if (specificLoc.includes('garmon mine')) locations.push('Garmon Mine');
+            if (specificLoc.includes('toucan island')) locations.push('Toucan Island');
+            if (specificLoc.includes('goddess pond')) locations.push('Goddess Pond');
+            if (specificLoc.includes('fugue forest')) locations.push('Fugue Forest');
+            if (specificLoc.includes('water cave')) locations.push('Water Cave');
+            return locations.length ? locations : ['Various Locations'];
+        }
+
+        function getFishImageUrl(spriteId) {
+            return `https://23409588f3e6b520e202-1fd01abd62a9d4f09fad4d757fc45540.ssl.cf2.rackcdn.com/fish${spriteId.toString().padStart(2, '0')}.jpg`;
+        }
+
+        function cleanTime(time) {
+            if (time === "All day" || time === "Any time") return time;
+            return time.replace(/(\d+):00\s*/g, '$1').replace(/\s+am/g, 'am').replace(/\s+pm/g, 'pm').replace(/\s+to\s+/g, '-');
+        }
+
+        function renderFish() {
+            const container = document.getElementById('fishContainer');
+            const grouped = {};
+
+            filteredData.forEach(fish => {
+                const seasons = categorizeSeasons(fish.season);
+                const locations = parseLocations(fish);
+                const seasonArray = Array.isArray(seasons) ? seasons : [seasons];
+
+                seasonArray.forEach(season => {
+                    locations.forEach(location => {
+                        if (!grouped[season]) grouped[season] = {};
+                        if (!grouped[season][location]) grouped[season][location] = [];
+                        grouped[season][location].push(fish);
+                    });
+                });
+            });
+
+            Object.keys(grouped).forEach(season => {
+                Object.keys(grouped[season]).forEach(location => {
+                    grouped[season][location].sort((a, b) => {
+                        return currentSort === 'asc' ? a.price - b.price : b.price - a.price;
+                    });
+                });
+            });
+
+            let html = '';
+            const seasonOrder = ['Spring', 'Summer', 'Fall', 'Winter', 'Any Season'];
+
+            seasonOrder.forEach(season => {
+                if (grouped[season]) {
+                    const seasonClass = season.toLowerCase().replace(/\s+/g, '-');
+                    html += `<div class="season" id="season-${seasonClass}">
+                        <div class="season-title ${seasonClass}">${season}</div>`;
+
+                    Object.keys(grouped[season]).sort().forEach(location => {
+                        html += `<div class="location">
+                            <div class="location-title">${location}</div>`;
+
+                        grouped[season][location].forEach(fish => {
+                            html += `<div class="fish">
+                                <img src="${getFishImageUrl(fish.spriteId)}" alt="${fish.name}" onerror="this.style.display='none'">
+                                <div class="fish-info">
+                                    <div class="fish-name">${fish.name}</div>
+                                    <div class="fish-details">${cleanTime(fish.time)} • EXP: ${fish.exp}</div>
+                                </div>
+                                <div class="fish-price">${fish.price} G</div>
+                            </div>`;
+                        });
+
+                        html += '</div>';
+                    });
+
+                    html += '</div>';
+                }
+            });
+
+            container.innerHTML = html;
+        }
+
+        function sortByPrice(order) {
+            currentSort = order;
+            document.querySelectorAll('.nav button').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            renderFish();
+        }
+
+        function scrollToSeason(season) {
+            const seasonId = `season-${season.replace(/\s+/g, '-').toLowerCase()}`;
+            const element = document.getElementById(seasonId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        function searchFish() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+            if (searchTerm === '') {
+                filteredData = fishData;
+                document.getElementById('searchResults').innerHTML = '';
+            } else {
+                filteredData = fishData.filter(fish => 
+                    fish.name.toLowerCase().includes(searchTerm) ||
+                    fish.specificLocation.toLowerCase().includes(searchTerm) ||
+                    fish.location.toLowerCase().includes(searchTerm)
+                );
+                const resultCount = filteredData.length;
+                const resultsText = resultCount === 1 ? '1 fish found' : `${resultCount} fish found`;
+                document.getElementById('searchResults').innerHTML = `<div style="color: #aaa; font-size: 12px; margin-top: 5px;">${resultsText}</div>`;
+            }
+            renderFish();
+        }
+
+        document.getElementById('searchInput').addEventListener('input', searchFish);
+        
+        // Initial render
+        renderFish();
+        
+        // Add padding to body for fixed nav
+        document.body.style.paddingBottom = '80px';
+    </script>
+</body>
+</html>
